@@ -26,10 +26,10 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-              <span className="text-white font-bold text-sm">D</span>
+              <span className="text-white font-bold text-sm">RH</span>
             </div>
             <span className="text-xl font-bold text-gray-900">
-              Devis<span className="text-blue-600">Pro</span>
+              Renov<span className="text-blue-600">Habitation</span>
             </span>
           </Link>
 

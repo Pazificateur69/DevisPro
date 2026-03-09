@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Conditions Générales d'Utilisation",
-  description: "CGU du site DevisPro - Conditions d'utilisation du service de mise en relation avec des artisans.",
+  description: "CGU du site Renov Habitation - Conditions d'utilisation du service de mise en relation avec des artisans.",
 };
 
 export default function CGUPage() {
@@ -20,7 +20,7 @@ export default function CGUPage() {
             </h2>
             <p className="text-gray-700 leading-relaxed">
               Les présentes Conditions Générales d&apos;Utilisation (CGU)
-              régissent l&apos;utilisation du site DevisPro, service de mise en
+              régissent l&apos;utilisation du site Renov Habitation, service de mise en
               relation entre des particuliers ayant un besoin en travaux et des
               artisans qualifiés.
             </p>
@@ -31,7 +31,7 @@ export default function CGUPage() {
               Article 2 - Service proposé
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              DevisPro est un service gratuit pour les particuliers qui permet
+              Renov Habitation est un service gratuit pour les particuliers qui permet
               de recevoir jusqu&apos;à 3 devis d&apos;artisans qualifiés. Le
               service est accessible via le site internet et le formulaire de
               demande de devis.
@@ -90,7 +90,7 @@ export default function CGUPage() {
               Article 7 - Responsabilité
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              DevisPro agit exclusivement en tant qu&apos;intermédiaire. Nous ne
+              Renov Habitation agit exclusivement en tant qu&apos;intermédiaire. Nous ne
               sommes pas responsables de la qualité des travaux réalisés, des
               retards, ou de tout litige entre le particulier et l&apos;artisan.
             </p>

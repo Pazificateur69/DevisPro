@@ -61,7 +61,7 @@ export default function ContactPage() {
               {
                 icon: <Mail className="w-5 h-5" />,
                 title: "Email",
-                info: "contact@devispro.fr",
+                info: "contact@renov-habitation.fr",
                 sub: "Réponse sous 24h",
               },
               {

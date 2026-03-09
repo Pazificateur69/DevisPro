@@ -15,8 +15,8 @@ export function getOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "DevisPro",
-    url: "https://devispro.fr",
+    name: "Renov Habitation",
+    url: "https://renov-habitation.fr",
     description:
       "Mise en relation gratuite avec des artisans qualifies. Recevez jusqu'a 3 devis en moins de 24h.",
     contactPoint: {
@@ -43,8 +43,8 @@ export function getServiceJsonLd(
     description: serviceDescription,
     provider: {
       "@type": "Organization",
-      name: "DevisPro",
-      url: "https://devispro.fr",
+      name: "Renov Habitation",
+      url: "https://renov-habitation.fr",
     },
     ...(cityName && {
       areaServed: {

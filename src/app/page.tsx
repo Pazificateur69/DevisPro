@@ -44,7 +44,7 @@ const testimonials = [
   {
     name: "Thomas R.",
     location: "Toulouse (31)",
-    text: "Problème de punaises de lit réglé en 48h grâce à DevisPro. L\u2019artisan était sérieux et le traitement a été très efficace.",
+    text: "Problème de punaises de lit réglé en 48h grâce à Renov Habitation. L\u2019artisan était sérieux et le traitement a été très efficace.",
     rating: 5,
     service: "Traitement nuisibles",
   },

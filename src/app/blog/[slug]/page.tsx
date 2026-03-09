@@ -66,8 +66,8 @@ export default async function BlogPostPage({ params }: Props) {
           datePublished: post.publishedAt,
           publisher: {
             "@type": "Organization",
-            name: "DevisPro",
-            url: "https://devispro.fr",
+            name: "Renov Habitation",
+            url: "https://renov-habitation.fr",
           },
         }}
       />

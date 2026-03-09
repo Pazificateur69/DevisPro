@@ -8,7 +8,7 @@ import { MapPin, FileText, Wrench, BookOpen, Building2, Info } from "lucide-reac
 
 export const metadata: Metadata = {
   title: "Plan du site",
-  description: "Plan du site DevisPro - Retrouvez toutes les pages du site : services, villes, guides, blog et informations légales.",
+  description: "Plan du site Renov Habitation - Retrouvez toutes les pages du site : services, villes, guides, blog et informations légales.",
 };
 
 export default function PlanDuSitePage() {
@@ -22,7 +22,7 @@ export default function PlanDuSitePage() {
             Plan du site
           </h1>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Retrouvez l&apos;ensemble des pages de DevisPro pour naviguer facilement sur notre site.
+            Retrouvez l&apos;ensemble des pages de Renov Habitation pour naviguer facilement sur notre site.
           </p>
         </div>
 

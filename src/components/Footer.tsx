@@ -29,10 +29,10 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-sm">D</span>
+                <span className="text-white font-bold text-sm">RH</span>
               </div>
               <span className="text-xl font-bold text-white">
-                Devis<span className="text-blue-400">Pro</span>
+                Renov<span className="text-blue-400">Habitation</span>
               </span>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-5">
@@ -96,7 +96,7 @@ export default function Footer() {
                 <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4 text-blue-400" />
                 </div>
-                <a href="mailto:contact@devispro.fr" className="hover:text-white transition-colors">contact@devispro.fr</a>
+                <a href="mailto:contact@renov-habitation.fr" className="hover:text-white transition-colors">contact@renov-habitation.fr</a>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -110,7 +110,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-gray-800 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} DevisPro. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} Renov Habitation. Tous droits réservés.</p>
           <div className="flex items-center gap-4">
             <Link href="/mentions-legales" className="hover:text-gray-300 transition-colors">Mentions légales</Link>
             <span className="text-gray-700">·</span>

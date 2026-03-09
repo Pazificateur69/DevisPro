@@ -36,7 +36,7 @@ Les facteurs qui influencent le prix final sont la surface a inspecter, l'access
 
 La prise en charge par l'assurance est possible dans le cadre d'un degat des eaux declare. La convention IRSI definit les regles de repartition des frais entre les differents assureurs concernes.
 
-Pour obtenir le meilleur tarif, nous recommandons de comparer au moins 3 devis de professionnels differents. C'est exactement ce que DevisPro vous propose : recevez gratuitement 3 devis d'artisans qualifies pres de chez vous.`,
+Pour obtenir le meilleur tarif, nous recommandons de comparer au moins 3 devis de professionnels differents. C'est exactement ce que Renov Habitation vous propose : recevez gratuitement 3 devis d'artisans qualifies pres de chez vous.`,
     faq: [
       { question: "Quel est le prix moyen d'une recherche de fuite en 2026 ?", answer: "Le prix moyen se situe entre 150 et 500 EUR selon la methode de detection utilisee. La detection acoustique est la moins couteuse, le gaz traceur la plus onereuse." },
       { question: "L'assurance prend-elle en charge les frais ?", answer: "Dans le cadre d'un degat des eaux declare, votre assurance habitation peut couvrir tout ou partie des frais de recherche de fuite selon votre contrat." },

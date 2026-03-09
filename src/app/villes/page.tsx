@@ -7,7 +7,7 @@ import { MapPin } from "lucide-react";
 export const metadata: Metadata = {
   title: "Artisans par ville - Trouvez un professionnel près de chez vous",
   description:
-    "Trouvez un artisan qualifié dans votre ville. DevisPro couvre toutes les grandes villes de France : Paris, Lyon, Marseille, Toulouse, Bordeaux...",
+    "Trouvez un artisan qualifié dans votre ville. Renov Habitation couvre toutes les grandes villes de France : Paris, Lyon, Marseille, Toulouse, Bordeaux...",
 };
 
 export default function VillesPage() {
@@ -21,7 +21,7 @@ export default function VillesPage() {
             Trouvez un artisan dans votre ville
           </h1>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            DevisPro est présent dans plus de {cities.length} villes en France.
+            Renov Habitation est présent dans plus de {cities.length} villes en France.
             Sélectionnez votre ville pour trouver un artisan qualifié près de
             chez vous.
           </p>

@@ -10,13 +10,13 @@ const inter = Inter({
   display: "swap",
 });
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://devispro.fr";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://renov-habitation.fr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "DevisPro - Recevez jusqu'à 3 devis gratuits d'artisans qualifiés",
-    template: "%s | DevisPro",
+    default: "Renov Habitation - Recevez jusqu'à 3 devis gratuits d'artisans qualifiés",
+    template: "%s | Renov Habitation",
   },
   description:
     "Trouvez rapidement un artisan qualifié près de chez vous. Recevez jusqu'à 3 devis gratuits en moins de 24h pour tous vos travaux : plomberie, chauffage, volets, nuisibles...",
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "DevisPro",
-    title: "DevisPro - Recevez jusqu'à 3 devis gratuits d'artisans qualifiés",
+    siteName: "Renov Habitation",
+    title: "Renov Habitation - Recevez jusqu'à 3 devis gratuits d'artisans qualifiés",
     description:
       "Trouvez rapidement un artisan qualifié près de chez vous. Recevez jusqu'à 3 devis gratuits en moins de 24h.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DevisPro - Devis gratuits d'artisans qualifiés",
+    title: "Renov Habitation - Devis gratuits d'artisans qualifiés",
     description:
       "Recevez jusqu'à 3 devis gratuits en moins de 24h. Service 100% gratuit.",
   },

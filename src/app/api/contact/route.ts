@@ -24,7 +24,7 @@ export async function POST(request: Request) {
           Authorization: `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
-          from: "DevisPro <contact@devispro.fr>",
+          from: "Renov Habitation <contact@renov-habitation.fr>",
           to: notificationEmail,
           subject: `Contact : ${sujet}`,
           html: `

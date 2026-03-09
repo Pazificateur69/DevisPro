@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
-  description: "Mentions légales du site DevisPro",
+  description: "Mentions légales du site Renov Habitation",
 };
 
 export default function MentionsLegalesPage() {
@@ -19,7 +19,7 @@ export default function MentionsLegalesPage() {
               Éditeur du site
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Le site DevisPro est édité par [Nom de la société], [forme
+              Le site Renov Habitation est édité par [Nom de la société], [forme
               juridique] au capital de [montant] euros, immatriculée au RCS de
               [ville] sous le numéro [numéro RCS].
             </p>
@@ -28,7 +28,7 @@ export default function MentionsLegalesPage() {
               <br />
               Téléphone : [Numéro]
               <br />
-              Email : contact@devispro.fr
+              Email : contact@renov-habitation.fr
               <br />
               Directeur de la publication : [Nom du directeur]
             </p>
@@ -49,7 +49,7 @@ export default function MentionsLegalesPage() {
               Propriété intellectuelle
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              L&apos;ensemble des contenus du site DevisPro (textes, images,
+              L&apos;ensemble des contenus du site Renov Habitation (textes, images,
               graphismes, logo, icônes, etc.) est protégé par le droit
               d&apos;auteur et le droit des marques. Toute reproduction ou
               représentation, totale ou partielle, est interdite sans
@@ -75,7 +75,7 @@ export default function MentionsLegalesPage() {
             </p>
             <p className="text-gray-700 leading-relaxed">
               Pour exercer vos droits, contactez-nous à l&apos;adresse :
-              rgpd@devispro.fr
+              rgpd@renov-habitation.fr
             </p>
           </section>
 
@@ -84,7 +84,7 @@ export default function MentionsLegalesPage() {
               Cookies
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Le site DevisPro utilise des cookies techniques nécessaires au
+              Le site Renov Habitation utilise des cookies techniques nécessaires au
               fonctionnement du site et des cookies d&apos;analyse pour mesurer
               l&apos;audience. Vous pouvez configurer votre navigateur pour
               refuser les cookies.
@@ -96,7 +96,7 @@ export default function MentionsLegalesPage() {
               Responsabilité
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              DevisPro agit en tant qu&apos;intermédiaire de mise en relation.
+              Renov Habitation agit en tant qu&apos;intermédiaire de mise en relation.
               Nous ne sommes pas partie prenante des contrats conclus entre les
               particuliers et les artisans. Nous ne garantissons pas la qualité
               des prestations réalisées par les artisans partenaires.

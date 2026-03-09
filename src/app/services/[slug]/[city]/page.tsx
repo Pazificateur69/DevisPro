@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
   if (!service || !city) return {};
 
-  const title = `${service.name} à ${city.name} - Devis gratuit | DevisPro`;
+  const title = `${service.name} à ${city.name} - Devis gratuit | Renov Habitation`;
   const description = `Besoin d'un artisan pour ${service.name.toLowerCase()} à ${city.name} (${city.departmentCode}) ? Recevez jusqu'à 3 devis gratuits en 24h. Artisans qualifiés et vérifiés.`;
 
   return {
@@ -162,7 +162,7 @@ export default async function CityServicePage({ params }: Props) {
 
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
-                  Pourquoi passer par DevisPro à {city.name} ?
+                  Pourquoi passer par Renov Habitation à {city.name} ?
                 </h3>
                 <ul className="space-y-2.5">
                   {[

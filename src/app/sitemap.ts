@@ -4,7 +4,7 @@ import { cities } from "@/lib/cities";
 import { longTailPages } from "@/lib/longtail";
 import { blogPosts } from "@/lib/blog";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://devispro.fr";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://renov-habitation.fr";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
