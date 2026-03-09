@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { services } from "@/lib/services";
 import ServiceIcon from "./ServiceIcon";
 import {
@@ -165,13 +166,12 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
             <div key={s.label} className="flex items-center flex-1">
               <div className="flex flex-col items-center gap-2 relative">
                 <div
-                  className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${
-                    isDone
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${isDone
                       ? "bg-gray-900 text-white shadow-md"
                       : isActive
-                      ? "bg-indigo-600 text-white shadow-xl shadow-indigo-500/20 scale-110 border-2 border-indigo-400"
-                      : "bg-gray-100 text-gray-400 border border-gray-200"
-                  }`}
+                        ? "bg-indigo-600 text-white shadow-xl shadow-indigo-500/20 scale-110 border-2 border-indigo-400"
+                        : "bg-gray-100 text-gray-400 border border-gray-200"
+                    }`}
                 >
                   {isDone ? (
                     <CheckCircle className="w-6 h-6" />
@@ -180,9 +180,8 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
                   )}
                 </div>
                 <span
-                  className={`text-[11px] font-bold tracking-widest uppercase absolute -bottom-6 transition-colors hidden sm:block w-max ${
-                    isActive ? "text-indigo-600" : "text-gray-400"
-                  }`}
+                  className={`text-[11px] font-bold tracking-widest uppercase absolute -bottom-6 transition-colors hidden sm:block w-max ${isActive ? "text-indigo-600" : "text-gray-400"
+                    }`}
                 >
                   {s.label}
                 </span>
@@ -191,9 +190,8 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
                 <div className="flex-1 mx-3 sm:mx-4 mb-4 sm:mb-0">
                   <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
                     <div
-                      className={`h-full rounded-full transition-all duration-500 ease-out ${
-                        isDone ? "w-full bg-gray-900" : "w-0 bg-transparent"
-                      }`}
+                      className={`h-full rounded-full transition-all duration-500 ease-out ${isDone ? "w-full bg-gray-900" : "w-0 bg-transparent"
+                        }`}
                     />
                   </div>
                 </div>
@@ -222,18 +220,16 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
                     updateField("service", service.slug);
                     setTimeout(() => setStep(2), 200); // Small delay for UX feel
                   }}
-                  className={`flex items-center gap-4 p-5 rounded-2xl border-2 text-left transition-all duration-200 outline-none card-hover ${
-                    formData.service === service.slug
+                  className={`flex items-center gap-4 p-5 rounded-2xl border-2 text-left transition-all duration-200 outline-none card-hover ${formData.service === service.slug
                       ? "border-indigo-600 bg-indigo-50/50 shadow-md ring-2 ring-indigo-600/20"
                       : "border-gray-100 hover:border-indigo-300 bg-white"
-                  }`}
+                    }`}
                 >
                   <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
-                      formData.service === service.slug
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${formData.service === service.slug
                         ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20"
                         : "bg-gray-50 text-gray-500 border border-gray-200"
-                    }`}
+                      }`}
                   >
                     <ServiceIcon name={service.icon} className="w-5 h-5" />
                   </div>
