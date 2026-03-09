@@ -16,76 +16,78 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
-          : "bg-white"
-      }`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
+          ? "glass shadow-sm"
+          : "bg-[#fafafa]"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-              <span className="text-white font-bold text-sm">RH</span>
+        <div className="flex justify-between items-center h-[72px]">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-gray-900 rounded-xl flex items-center justify-center shadow-lg transition-transform group-hover:scale-105 group-hover:bg-indigo-600">
+              <span className="text-white font-extrabold text-sm tracking-tighter">RH</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">
-              Renov<span className="text-blue-600">Habitation</span>
+            <span className="text-xl font-extrabold text-gray-900 tracking-tight">
+              Renov<span className="text-indigo-600">Habitation</span>
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-2">
             {[
               { href: "/#services", label: "Services" },
               { href: "/blog", label: "Blog" },
-              { href: "/artisans", label: "Espace artisans" },
+              { href: "/artisans", label: "Artisans" },
               { href: "/contact", label: "Contact" },
             ].map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all text-sm font-medium px-3.5 py-2 rounded-lg"
+                className="text-gray-500 hover:text-gray-900 font-semibold text-sm px-4 py-2 rounded-lg transition-colors hover:bg-gray-100/50"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          {/* CTA Desktop */}
+          <div className="hidden md:flex items-center gap-4">
             <a
               href="tel:0800000000"
-              className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors px-3 py-2"
+              className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 font-semibold transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span>08 00 00 00 00</span>
             </a>
             <Link
               href="/devis"
-              className="bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5 active:scale-[0.97]"
+              className="btn-primary flex items-center gap-1.5 px-5 py-2.5 text-sm font-bold"
             >
               Devis gratuit
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2.5 rounded-xl hover:bg-gray-100 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menu"
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700" />
+              <X className="w-5 h-5 text-gray-900" />
             ) : (
-              <Menu className="w-6 h-6 text-gray-700" />
+              <Menu className="w-5 h-5 text-gray-900" />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu Panel */}
       <div
-        className={`md:hidden border-t bg-white overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden border-t border-gray-100 bg-white overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="px-4 py-4 space-y-1">
           {[
@@ -98,16 +100,16 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-2.5 px-3 rounded-lg transition-colors"
+              className="block text-gray-600 font-semibold hover:text-indigo-600 hover:bg-indigo-50/50 py-3 px-4 rounded-xl transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          <div className="pt-2">
+          <div className="pt-4 pb-2">
             <Link
               href="/devis"
-              className="block bg-blue-600 text-white text-center px-5 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+              className="block bg-gray-900 text-white text-center px-5 py-3.5 rounded-xl font-bold hover:bg-black transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Devis gratuit

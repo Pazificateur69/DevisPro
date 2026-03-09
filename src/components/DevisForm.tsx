@@ -120,7 +120,7 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
       });
 
       if (!res.ok) {
-        throw new Error("Erreur lors de l\u2019envoi");
+        throw new Error("Erreur lors de l’envoi");
       }
 
       setIsSubmitted(true);
@@ -133,19 +133,19 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
 
   if (isSubmitted) {
     return (
-      <div className="text-center py-14 px-4 animate-fade-in-up">
-        <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-5 ring-8 ring-green-50/50">
-          <CheckCircle className="w-10 h-10 text-green-500" />
+      <div className="text-center py-20 px-8 animate-fade-in-up bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/40">
+        <div className="w-24 h-24 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-8 ring-[10px] ring-emerald-50/50">
+          <CheckCircle className="w-12 h-12 text-emerald-500" />
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-3">
+        <h3 className="text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">
           Demande envoyée avec succès&nbsp;!
         </h3>
-        <p className="text-gray-500 max-w-md mx-auto leading-relaxed">
+        <p className="text-gray-500 max-w-lg mx-auto leading-relaxed text-lg font-medium">
           Votre demande de devis a bien été enregistrée. Vous recevrez jusqu&apos;à 3 devis
-          d&apos;artisans qualifiés dans les <strong className="text-gray-700">24 heures</strong>.
+          d&apos;artisans qualifiés dans les <strong className="text-gray-900">24 heures</strong>.
         </p>
-        <div className="flex items-center justify-center gap-2 mt-6 text-sm text-green-600">
-          <Shield className="w-4 h-4" />
+        <div className="flex items-center justify-center gap-2 mt-10 p-4 bg-gray-50 rounded-2xl text-sm font-medium text-gray-600 border border-gray-100">
+          <Shield className="w-4 h-4 text-emerald-500" />
           <span>Vos données sont protégées et ne seront jamais revendues</span>
         </div>
       </div>
@@ -155,7 +155,7 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
   return (
     <div className="w-full max-w-2xl mx-auto">
       {/* Progress bar */}
-      <div className="flex items-center justify-between mb-8 px-2">
+      <div className="flex items-center justify-between mb-10 px-2 lg:px-4">
         {stepLabels.map((s, i) => {
           const stepNum = i + 1;
           const StepIcon = s.icon;
@@ -163,36 +163,36 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
           const isDone = stepNum < step;
           return (
             <div key={s.label} className="flex items-center flex-1">
-              <div className="flex flex-col items-center gap-1.5">
+              <div className="flex flex-col items-center gap-2 relative">
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${
                     isDone
-                      ? "bg-blue-600 text-white shadow-md shadow-blue-200"
+                      ? "bg-gray-900 text-white shadow-md"
                       : isActive
-                      ? "bg-blue-600 text-white shadow-md shadow-blue-200 scale-110"
-                      : "bg-gray-100 text-gray-400"
+                      ? "bg-indigo-600 text-white shadow-xl shadow-indigo-500/20 scale-110 border-2 border-indigo-400"
+                      : "bg-gray-100 text-gray-400 border border-gray-200"
                   }`}
                 >
                   {isDone ? (
-                    <CheckCircle className="w-5 h-5" />
+                    <CheckCircle className="w-6 h-6" />
                   ) : (
-                    <StepIcon className="w-4 h-4" />
+                    <StepIcon className="w-5 h-5" />
                   )}
                 </div>
                 <span
-                  className={`text-[10px] font-medium transition-colors hidden sm:block ${
-                    isActive ? "text-blue-600" : "text-gray-400"
+                  className={`text-[11px] font-bold tracking-widest uppercase absolute -bottom-6 transition-colors hidden sm:block w-max ${
+                    isActive ? "text-indigo-600" : "text-gray-400"
                   }`}
                 >
                   {s.label}
                 </span>
               </div>
               {stepNum < 4 && (
-                <div className="flex-1 mx-2 sm:mx-3 mb-4 sm:mb-0">
-                  <div className="h-1 rounded-full bg-gray-100 overflow-hidden">
+                <div className="flex-1 mx-3 sm:mx-4 mb-4 sm:mb-0">
+                  <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
                     <div
-                      className={`h-full rounded-full bg-blue-600 transition-all duration-500 ${
-                        isDone ? "w-full" : "w-0"
+                      className={`h-full rounded-full transition-all duration-500 ease-out ${
+                        isDone ? "w-full bg-gray-900" : "w-0 bg-transparent"
                       }`}
                     />
                   </div>
@@ -203,41 +203,41 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
         })}
       </div>
 
-      <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-6 sm:p-8 animate-fade-in">
+      <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/40 border border-gray-100 p-8 sm:p-10 animate-fade-in sm:mt-8">
         {/* Step 1: Service */}
         {step === 1 && (
           <div className="animate-fade-in-up">
-            <h3 className="text-xl font-bold text-gray-900 mb-1">
+            <h3 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
               Quel service recherchez-vous&nbsp;?
             </h3>
-            <p className="text-gray-400 text-sm mb-6">
-              Sélectionnez le type de prestation dont vous avez besoin
+            <p className="text-gray-500 text-base font-medium mb-8">
+              Sélectionnez le type de prestation dont vous avez besoin.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {services.map((service) => (
                 <button
                   key={service.slug}
                   type="button"
                   onClick={() => {
                     updateField("service", service.slug);
-                    setStep(2);
+                    setTimeout(() => setStep(2), 200); // Small delay for UX feel
                   }}
-                  className={`flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all duration-200 hover:border-blue-400 hover:bg-blue-50/50 hover:scale-[1.01] active:scale-[0.99] ${
+                  className={`flex items-center gap-4 p-5 rounded-2xl border-2 text-left transition-all duration-200 outline-none card-hover ${
                     formData.service === service.slug
-                      ? "border-blue-600 bg-blue-50 shadow-sm"
-                      : "border-gray-150"
+                      ? "border-indigo-600 bg-indigo-50/50 shadow-md ring-2 ring-indigo-600/20"
+                      : "border-gray-100 hover:border-indigo-300 bg-white"
                   }`}
                 >
                   <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
                       formData.service === service.slug
-                        ? "bg-blue-600 text-white"
-                        : "bg-blue-50 text-blue-600"
+                        ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20"
+                        : "bg-gray-50 text-gray-500 border border-gray-200"
                     }`}
                   >
                     <ServiceIcon name={service.icon} className="w-5 h-5" />
                   </div>
-                  <span className="text-sm font-medium text-gray-800">
+                  <span className={`text-base font-bold ${formData.service === service.slug ? "text-indigo-900" : "text-gray-800"}`}>
                     {service.name}
                   </span>
                 </button>
@@ -249,27 +249,27 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
         {/* Step 2: Description */}
         {step === 2 && (
           <div className="animate-slide-in-right">
-            <h3 className="text-xl font-bold text-gray-900 mb-1">
+            <h3 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
               Décrivez votre besoin
             </h3>
-            <p className="text-gray-400 text-sm mb-6">
-              Plus vous êtes précis, meilleurs seront les devis reçus
+            <p className="text-gray-500 text-base font-medium mb-8">
+              Plus vous êtes précis, meilleurs seront les devis reçus.
             </p>
             <textarea
               value={formData.description}
               onChange={(e) => updateField("description", e.target.value)}
-              placeholder="Ex : Mon volet roulant de la chambre est bloqué en position fermée depuis ce matin. C'est un volet électrique installé il y a 5 ans..."
+              placeholder="Ex : Mon volet roulant de la chambre est bloqué en position fermée depuis ce matin..."
               rows={5}
-              className="w-full border-2 border-gray-200 rounded-xl p-4 text-gray-900 placeholder-gray-300 focus:border-blue-600 focus:outline-none resize-none transition-all"
+              className="w-full border-2 border-gray-100 bg-gray-50 rounded-2xl p-5 text-gray-900 font-medium placeholder-gray-400 focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 focus:outline-none resize-none transition-all"
               autoFocus
             />
-            <div className="flex justify-between mt-2">
-              <p className="text-xs text-gray-300">
+            <div className="flex justify-between mt-3 px-1">
+              <p className="text-sm font-semibold text-gray-400">
                 {formData.description.length}/500 caractères
               </p>
               {formData.description.length >= 10 && (
-                <p className="text-xs text-green-500 flex items-center gap-1">
-                  <CheckCircle className="w-3 h-3" /> Suffisant
+                <p className="text-sm font-bold text-emerald-500 flex items-center gap-1.5 animate-fade-in">
+                  <CheckCircle className="w-4 h-4" /> Suffisant
                 </p>
               )}
             </div>
@@ -279,14 +279,14 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
         {/* Step 3: Code Postal */}
         {step === 3 && (
           <div className="animate-slide-in-right">
-            <h3 className="text-xl font-bold text-gray-900 mb-1">
+            <h3 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
               Où se situe l&apos;intervention&nbsp;?
             </h3>
-            <p className="text-gray-400 text-sm mb-6">
-              Pour trouver des artisans près de chez vous
+            <p className="text-gray-500 text-base font-medium mb-8">
+              Pour trouver des artisans près de chez vous.
             </p>
             <div className="relative">
-              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
+              <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" />
               <input
                 type="text"
                 value={formData.code_postal}
@@ -295,13 +295,13 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
                   updateField("code_postal", val);
                 }}
                 placeholder="Code postal (ex : 75001)"
-                className="w-full border-2 border-gray-200 rounded-xl p-4 pl-12 text-gray-900 text-lg placeholder-gray-300 focus:border-blue-600 focus:outline-none transition-all tracking-wider"
+                className="w-full border-2 border-gray-100 bg-gray-50 rounded-2xl py-5 pr-5 pl-14 text-gray-900 text-xl font-bold placeholder-gray-400 focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 focus:outline-none transition-all tracking-widest"
                 inputMode="numeric"
                 autoFocus
               />
             </div>
             {formData.code_postal.length === 5 && (
-              <p className="text-sm text-green-500 flex items-center gap-1 mt-3">
+              <p className="text-sm font-bold text-emerald-500 flex items-center gap-1.5 mt-4 px-1 animate-fade-in">
                 <CheckCircle className="w-4 h-4" /> Code postal valide
               </p>
             )}
@@ -311,26 +311,26 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
         {/* Step 4: Contact */}
         {step === 4 && (
           <div className="animate-slide-in-right">
-            <h3 className="text-xl font-bold text-gray-900 mb-1">
+            <h3 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
               Vos coordonnées
             </h3>
-            <p className="text-gray-400 text-sm mb-6">
-              Pour que les artisans puissent vous contacter
+            <p className="text-gray-500 text-base font-medium mb-8">
+              Pour que les artisans puissent vous contacter avec leurs offres.
             </p>
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="relative">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
+                <User className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="text"
                   value={formData.nom}
                   onChange={(e) => updateField("nom", e.target.value)}
                   placeholder="Votre nom complet"
-                  className="w-full border-2 border-gray-200 rounded-xl p-4 pl-11 text-gray-900 placeholder-gray-300 focus:border-blue-600 focus:outline-none transition-all"
+                  className="w-full border-2 border-gray-100 bg-gray-50 rounded-2xl py-4 pr-5 pl-14 text-gray-900 font-bold placeholder-gray-400 focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 focus:outline-none transition-all"
                   autoFocus
                 />
               </div>
               <div className="relative">
-                <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <input
@@ -338,12 +338,12 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
                   value={formData.telephone}
                   onChange={(e) => updateField("telephone", e.target.value)}
                   placeholder="Téléphone (ex : 06 12 34 56 78)"
-                  className="w-full border-2 border-gray-200 rounded-xl p-4 pl-11 text-gray-900 placeholder-gray-300 focus:border-blue-600 focus:outline-none transition-all"
+                  className="w-full border-2 border-gray-100 bg-gray-50 rounded-2xl py-4 pr-5 pl-14 text-gray-900 font-bold placeholder-gray-400 focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 focus:outline-none transition-all"
                   inputMode="tel"
                 />
               </div>
               <div className="relative">
-                <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <input
@@ -351,18 +351,16 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
                   value={formData.email}
                   onChange={(e) => updateField("email", e.target.value)}
                   placeholder="Adresse email"
-                  className="w-full border-2 border-gray-200 rounded-xl p-4 pl-11 text-gray-900 placeholder-gray-300 focus:border-blue-600 focus:outline-none transition-all"
+                  className="w-full border-2 border-gray-100 bg-gray-50 rounded-2xl py-4 pr-5 pl-14 text-gray-900 font-bold placeholder-gray-400 focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 focus:outline-none transition-all"
                   inputMode="email"
                 />
               </div>
             </div>
-            <div className="flex items-start gap-2 mt-4 text-xs text-gray-400">
-              <Shield className="w-3.5 h-3.5 text-gray-300 mt-0.5 flex-shrink-0" />
+            <div className="flex items-start gap-3 mt-6 p-4 bg-gray-50 border border-gray-100 rounded-xl text-xs font-medium text-gray-500">
+              <Shield className="w-4 h-4 text-indigo-400 flex-shrink-0" />
               <p>
-                Vos données sont protégées. En soumettant ce formulaire, vous acceptez nos{" "}
-                <a href="/cgu" className="text-blue-600 hover:underline">
-                  CGU
-                </a>{" "}
+                Vos données sont strictement protégées. En validant, vous acceptez nos{" "}
+                <Link href="/cgu" className="text-gray-900 underline hover:text-indigo-600 transition-colors">CGU</Link>{" "}
                 et notre politique de confidentialité.
               </p>
             </div>
@@ -371,8 +369,8 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
 
         {/* Error */}
         {error && (
-          <div className="mt-4 p-3.5 bg-red-50 border border-red-100 rounded-xl text-red-600 text-sm flex items-center gap-2 animate-fade-in">
-            <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <div className="mt-6 p-4 bg-red-50 border border-red-100 rounded-xl text-red-700 font-medium text-sm flex items-center gap-3 animate-fade-in">
+            <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
             {error}
@@ -380,12 +378,12 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
         )}
 
         {/* Navigation */}
-        <div className="flex justify-between mt-8">
+        <div className="flex justify-between items-center mt-10 pt-8 border-t border-gray-100">
           {step > 1 ? (
             <button
               type="button"
               onClick={prevStep}
-              className="flex items-center gap-2 px-4 py-2.5 text-gray-500 hover:text-gray-900 hover:bg-gray-50 font-medium transition-all rounded-xl text-sm"
+              className="flex items-center gap-2 px-5 py-3 text-gray-500 font-bold hover:text-gray-900 hover:bg-gray-100 transition-all rounded-xl"
             >
               <ArrowLeft className="w-4 h-4" />
               Retour
@@ -399,7 +397,7 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
               <button
                 type="button"
                 onClick={nextStep}
-                className="flex items-center gap-2 bg-blue-600 text-white px-7 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-sm hover:shadow-md active:scale-[0.97]"
+                className="flex items-center gap-2.5 bg-gray-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-black transition-all shadow-lg active:scale-95"
               >
                 Continuer
                 <ArrowRight className="w-4 h-4" />
@@ -410,17 +408,17 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
               type="button"
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="flex items-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.97] animate-pulse-soft"
+              className="group flex items-center gap-2.5 btn-primary px-8 py-4 rounded-xl font-bold transition-all shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Envoi en cours...
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Envoi...
                 </>
               ) : (
                 <>
                   Recevoir mes devis gratuits
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
             </button>
