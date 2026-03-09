@@ -71,7 +71,7 @@ export async function POST(request: Request) {
     // Send notification email (best effort)
     try {
       const resendApiKey = process.env.RESEND_API_KEY;
-      const notificationEmail = process.env.NOTIFICATION_EMAIL;
+      const notificationEmail = process.env.NOTIFICATION_EMAIL || "contact@renov-habitation.fr";
 
       if (resendApiKey && notificationEmail) {
         await fetch("https://api.resend.com/emails", {
