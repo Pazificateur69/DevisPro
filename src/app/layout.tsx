@@ -61,7 +61,7 @@ export default function RootLayout({
       <head>
         <JsonLd data={getOrganizationJsonLd()} />
       </head>
-      <body className={`${inter.className} antialiased bg-gray-50 text-gray-900`}>
+      <body className={`${inter.className} antialiased`}>
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

@@ -62,7 +62,7 @@ export default function FranceMap() {
     setTooltipPos({ x: e.clientX, y: e.clientY });
   }, []);
 
-  if (!isMounted) return <div className="h-[520px] w-full max-w-lg mx-auto bg-gray-50 rounded-2xl animate-pulse" />;
+  if (!isMounted) return <div className="h-[520px] w-full max-w-lg mx-auto bg-slate-50 rounded-2xl animate-pulse" />;
 
   const dotRadius = (size: "lg" | "md" | "sm") => {
     switch (size) {
@@ -170,7 +170,7 @@ export default function FranceMap() {
 
       {hoveredDept && (
         <div
-          className="fixed z-50 pointer-events-none px-3 py-1.5 glass bg-white/90 text-gray-900 rounded-lg text-sm font-bold shadow-xl border border-gray-200/50 flex align-center gap-2"
+          className="fixed z-50 pointer-events-none px-3 py-1.5 bg-white/95 backdrop-blur-lg text-slate-900 rounded-lg text-sm font-bold shadow-xl border border-slate-200/50 flex align-center gap-2"
           style={{
             top: tooltipPos.y - 40,
             left: tooltipPos.x,
