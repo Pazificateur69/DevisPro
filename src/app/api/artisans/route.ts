@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
+const DESTINATION_EMAIL = "contact@renov-habitation.fr";
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -62,31 +64,73 @@ export async function POST(request: Request) {
     // Send notification
     try {
       const resendApiKey = process.env.RESEND_API_KEY;
-      const notificationEmail = process.env.NOTIFICATION_EMAIL || "contact@renov-habitation.fr";
 
-      if (resendApiKey && notificationEmail) {
-        await fetch("https://api.resend.com/emails", {
+      if (resendApiKey) {
+        const emailRes = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${resendApiKey}`,
           },
           body: JSON.stringify({
-            from: "Renov Habitation <notifications@renov-habitation.fr>",
-            to: notificationEmail,
-            subject: `Nouvel artisan inscrit : ${entreprise}`,
+            from: "Renov Habitation <contact@renov-habitation.fr>",
+            to: DESTINATION_EMAIL,
+            reply_to: email,
+            subject: `[Nouvel artisan] ${entreprise} — ${metier}`,
             html: `
-              <h2>Nouvel artisan partenaire</h2>
-              <p><strong>Nom :</strong> ${nom}</p>
-              <p><strong>Entreprise :</strong> ${entreprise}</p>
-              <p><strong>Metier :</strong> ${metier}</p>
-              <p><strong>Email :</strong> ${email}</p>
-              <p><strong>Telephone :</strong> ${telephone}</p>
-              <p><strong>Code postal :</strong> ${code_postal}</p>
-              <p><strong>SIRET :</strong> ${siret}</p>
+              <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
+                <div style="background: linear-gradient(135deg, #065f46, #047857); padding: 32px 24px; border-radius: 12px 12px 0 0;">
+                  <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">Nouvel artisan partenaire</h1>
+                  <p style="color: #a7f3d0; margin: 8px 0 0; font-size: 14px;">${entreprise} — ${metier}</p>
+                </div>
+                <div style="padding: 32px 24px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 12px 12px;">
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; width: 130px;">Nom</td>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #111827; font-size: 14px; font-weight: 600;">${nom}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px;">Entreprise</td>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #111827; font-size: 14px; font-weight: 600;">${entreprise}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px;">Metier</td>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #111827; font-size: 14px; font-weight: 600;">${metier}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px;">Email</td>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #111827; font-size: 14px; font-weight: 600;"><a href="mailto:${email}" style="color: #4f46e5;">${email}</a></td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px;">Telephone</td>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #111827; font-size: 14px; font-weight: 600;"><a href="tel:${telephone}" style="color: #4f46e5;">${telephone}</a></td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px;">Code postal</td>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #111827; font-size: 14px; font-weight: 600;">${code_postal}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px;">Rayon</td>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #111827; font-size: 14px; font-weight: 600;">${rayon_intervention || 30} km</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0; color: #6b7280; font-size: 14px;">SIRET</td>
+                      <td style="padding: 12px 0; color: #111827; font-size: 14px; font-weight: 600;">${siret}</td>
+                    </tr>
+                  </table>
+                  <p style="color: #9ca3af; font-size: 12px; margin: 24px 0 0; text-align: center;">Renov Habitation — renov-habitation.fr</p>
+                </div>
+              </div>
             `,
           }),
         });
+
+        if (!emailRes.ok) {
+          const errorData = await emailRes.json().catch(() => ({}));
+          console.error("Resend API error:", emailRes.status, errorData);
+        }
+      } else {
+        console.warn("RESEND_API_KEY not configured - email not sent");
       }
     } catch (emailError) {
       console.error("Email sending failed:", emailError);
