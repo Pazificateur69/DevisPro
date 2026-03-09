@@ -5,9 +5,9 @@ import { services } from "@/lib/services";
 import { MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Artisans par ville - Trouvez un professionnel pres de chez vous",
+  title: "Artisans par ville - Trouvez un professionnel près de chez vous",
   description:
-    "Trouvez un artisan qualifie dans votre ville. DevisPro couvre toutes les grandes villes de France : Paris, Lyon, Marseille, Toulouse, Bordeaux...",
+    "Trouvez un artisan qualifié dans votre ville. DevisPro couvre toutes les grandes villes de France : Paris, Lyon, Marseille, Toulouse, Bordeaux...",
 };
 
 export default function VillesPage() {
@@ -21,8 +21,8 @@ export default function VillesPage() {
             Trouvez un artisan dans votre ville
           </h1>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            DevisPro est present dans plus de {cities.length} villes en France.
-            Selectionnez votre ville pour trouver un artisan qualifie pres de
+            DevisPro est présent dans plus de {cities.length} villes en France.
+            Sélectionnez votre ville pour trouver un artisan qualifié près de
             chez vous.
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function VillesPage() {
                     <Link
                       key={city.slug}
                       href={`/services/${services[0].slug}/${city.slug}`}
-                      className="p-3 rounded-lg border hover:border-blue-300 hover:bg-blue-50/50 transition-all text-center text-sm"
+                      className="p-3 rounded-lg border hover:border-blue-300 hover:bg-blue-50/50 transition-all text-center text-sm card-hover"
                     >
                       <span className="font-medium text-gray-900">
                         {city.name}

@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
   if (!service || !city) return {};
 
-  const title = `${service.name} a ${city.name} - Devis gratuit | DevisPro`;
-  const description = `Besoin d'un artisan pour ${service.name.toLowerCase()} a ${city.name} (${city.departmentCode}) ? Recevez jusqu'a 3 devis gratuits en 24h. Artisans qualifies et verifies.`;
+  const title = `${service.name} à ${city.name} - Devis gratuit | DevisPro`;
+  const description = `Besoin d'un artisan pour ${service.name.toLowerCase()} à ${city.name} (${city.departmentCode}) ? Recevez jusqu'à 3 devis gratuits en 24h. Artisans qualifiés et vérifiés.`;
 
   return {
     title,
@@ -73,7 +73,7 @@ export default async function CityServicePage({ params }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-12 sm:py-16">
+      <section className="hero-gradient text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 text-blue-200 text-sm mb-4">
@@ -93,15 +93,15 @@ export default async function CityServicePage({ params }: Props) {
               </div>
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4">
-              {service.name} a {city.name}
+              {service.name} à {city.name}
             </h1>
             <p className="text-lg text-blue-100 mb-6">
-              Trouvez un artisan qualifie pour {service.name.toLowerCase()} a {city.name} et dans le {city.department}. Recevez jusqu&apos;a 3 devis gratuits en moins de 24h.
+              Trouvez un artisan qualifié pour {service.name.toLowerCase()} à {city.name} et dans le {city.department}. Recevez jusqu&apos;à 3 devis gratuits en moins de 24h.
             </p>
             <div className="flex flex-wrap gap-3 text-sm text-blue-200">
               <div className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4" />
-                <span>Artisans verifies a {city.name}</span>
+                <span>Artisans vérifiés à {city.name}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4" />
@@ -109,7 +109,7 @@ export default async function CityServicePage({ params }: Props) {
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4" />
-                <span>Reponse en 24h</span>
+                <span>Réponse en 24h</span>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default async function CityServicePage({ params }: Props) {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-4 text-sm text-gray-600">
               <span>
-                <strong className="text-gray-900">Prix moyen</strong> a {city.name} : {service.priceRange}
+                <strong className="text-gray-900">Prix moyen</strong> à {city.name} : {service.priceRange}
               </span>
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((i) => (
@@ -150,10 +150,10 @@ export default async function CityServicePage({ params }: Props) {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-3">
-                  {service.name} a {city.name} : trouvez le bon artisan
+                  {service.name} à {city.name} : trouvez le bon artisan
                 </h2>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  Vous recherchez un professionnel pour {service.name.toLowerCase()} a {city.name} ({city.departmentCode}) ? Notre plateforme vous met en relation avec des artisans qualifies et verifies dans le {city.department} et ses environs.
+                  Vous recherchez un professionnel pour {service.name.toLowerCase()} à {city.name} ({city.departmentCode}) ? Notre plateforme vous met en relation avec des artisans qualifiés et vérifiés dans le {city.department} et ses environs.
                 </p>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {service.description}
@@ -162,15 +162,15 @@ export default async function CityServicePage({ params }: Props) {
 
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
-                  Pourquoi passer par DevisPro a {city.name} ?
+                  Pourquoi passer par DevisPro à {city.name} ?
                 </h3>
                 <ul className="space-y-2.5">
                   {[
-                    `Artisans locaux verifies a ${city.name} et ${city.department}`,
-                    "Jusqu'a 3 devis gratuits pour comparer",
-                    "Reponse garantie en moins de 24h",
+                    `Artisans locaux vérifiés à ${city.name} et ${city.department}`,
+                    "Jusqu'à 3 devis gratuits pour comparer",
+                    "Réponse garantie en moins de 24h",
                     "Service 100% gratuit et sans engagement",
-                    "Avis clients verifies",
+                    "Avis clients vérifiés",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
                       <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
@@ -185,7 +185,7 @@ export default async function CityServicePage({ params }: Props) {
                   Zone d&apos;intervention
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Nos artisans partenaires interviennent a {city.name} et dans toutes les communes du {city.department} ({city.departmentCode}), region {city.region}.
+                  Nos artisans partenaires interviennent à {city.name} et dans toutes les communes du {city.department} ({city.departmentCode}), région {city.region}.
                 </p>
               </div>
             </div>
@@ -206,14 +206,14 @@ export default async function CityServicePage({ params }: Props) {
               {service.name} dans les villes proches
             </h2>
             <p className="text-sm text-gray-500 mb-6">
-              Nous intervenons egalement dans ces villes du {city.department}
+              Nous intervenons également dans ces villes du {city.department}
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
               {nearbyCities.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/services/${slug}/${c.slug}`}
-                  className="p-3 rounded-xl border hover:border-blue-300 hover:bg-blue-50/50 transition-all text-center"
+                  className="p-3 rounded-xl border hover:border-blue-300 hover:bg-blue-50/50 transition-all text-center card-hover"
                 >
                   <div className="flex items-center justify-center gap-1 mb-1">
                     <MapPin className="w-3 h-3 text-blue-500" />
@@ -231,17 +231,17 @@ export default async function CityServicePage({ params }: Props) {
       <section className="py-10 sm:py-14 border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-gray-900 mb-2">
-            Autres services a {city.name}
+            Autres services à {city.name}
           </h2>
           <p className="text-sm text-gray-500 mb-6">
-            Tous nos services disponibles a {city.name}
+            Tous nos services disponibles à {city.name}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {otherServices.map((s) => (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}/${city.slug}`}
-                className="flex items-center gap-3 p-4 rounded-xl border hover:border-blue-300 hover:bg-blue-50/50 transition-all"
+                className="flex items-center gap-3 p-4 rounded-xl border hover:border-blue-300 hover:bg-blue-50/50 transition-all card-hover"
               >
                 <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <ServiceIcon name={s.icon} className="w-5 h-5 text-blue-600" />
@@ -257,17 +257,17 @@ export default async function CityServicePage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="bg-blue-600 text-white py-12">
+      <section className="hero-gradient text-white py-12">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-3">
-            Besoin d&apos;un artisan a {city.name} ?
+            Besoin d&apos;un artisan à {city.name} ?
           </h2>
           <p className="text-blue-100 mb-6">
             Recevez vos devis gratuits en moins de 24h
           </p>
           <Link
             href="#formulaire"
-            className="inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold hover:bg-blue-50 transition-colors"
+            className="btn-glow inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg"
           >
             Demander mes devis gratuits
             <ArrowRight className="w-5 h-5" />

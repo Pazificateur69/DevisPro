@@ -5,7 +5,7 @@ import { Shield, Clock, CheckCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "Demander un devis gratuit",
   description:
-    "Remplissez notre formulaire en moins de 30 secondes et recevez jusqu'a 3 devis gratuits d'artisans qualifies pres de chez vous.",
+    "Remplissez notre formulaire en moins de 30 secondes et recevez jusqu'à 3 devis gratuits d'artisans qualifiés près de chez vous.",
 };
 
 export default function DevisPage() {
@@ -17,17 +17,17 @@ export default function DevisPage() {
             Demandez vos devis gratuits
           </h1>
           <p className="text-gray-500 max-w-lg mx-auto">
-            Remplissez le formulaire ci-dessous et recevez jusqu&apos;a 3 devis
-            d&apos;artisans qualifies en moins de 24h.
+            Remplissez le formulaire ci-dessous et recevez jusqu&apos;à 3 devis
+            d&apos;artisans qualifiés en moins de 24h.
           </p>
           <div className="flex flex-wrap justify-center gap-6 mt-6 text-sm text-gray-500">
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-blue-600" />
-              <span>Donnees protegees</span>
+              <span>Données protégées</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-blue-600" />
-              <span>Reponse en 24h</span>
+              <span>Réponse en 24h</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-blue-600" />

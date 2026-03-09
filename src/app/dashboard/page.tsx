@@ -43,8 +43,8 @@ export default function DashboardPage() {
 
   const statusLabels: Record<string, string> = {
     nouveau: "Nouveau",
-    attribue: "Attribue",
-    traite: "Traite",
+    attribue: "Attribué",
+    traite: "Traité",
   };
 
   return (
@@ -66,8 +66,8 @@ export default function DashboardPage() {
             >
               <option value="tous">Tous les statuts</option>
               <option value="nouveau">Nouveaux</option>
-              <option value="attribue">Attribues</option>
-              <option value="traite">Traites</option>
+              <option value="attribue">Attribués</option>
+              <option value="traite">Traités</option>
             </select>
           </div>
         </div>
@@ -86,12 +86,12 @@ export default function DashboardPage() {
               color: "bg-yellow-50 text-yellow-600",
             },
             {
-              label: "Attribues",
+              label: "Attribués",
               value: leads.filter((l) => l.status === "attribue").length,
               color: "bg-orange-50 text-orange-600",
             },
             {
-              label: "Traites",
+              label: "Traités",
               value: leads.filter((l) => l.status === "traite").length,
               color: "bg-green-50 text-green-600",
             },

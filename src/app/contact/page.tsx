@@ -29,7 +29,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error();
       setIsSubmitted(true);
     } catch {
-      setError("Erreur lors de l'envoi. Veuillez reessayer.");
+      setError("Erreur lors de l'envoi. Veuillez réessayer.");
     } finally {
       setIsSubmitting(false);
     }
@@ -43,8 +43,8 @@ export default function ContactPage() {
             Contactez-nous
           </h1>
           <p className="text-gray-500 max-w-lg mx-auto">
-            Une question ? Besoin d&apos;aide ? Notre equipe est la pour vous
-            repondre.
+            Une question ? Besoin d&apos;aide ? Notre équipe est là pour vous
+            répondre.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export default function ContactPage() {
             {[
               {
                 icon: <Phone className="w-5 h-5" />,
-                title: "Telephone",
+                title: "Téléphone",
                 info: "08 00 00 00 00",
                 sub: "Lun-Ven : 9h-18h",
               },
@@ -62,18 +62,18 @@ export default function ContactPage() {
                 icon: <Mail className="w-5 h-5" />,
                 title: "Email",
                 info: "contact@devispro.fr",
-                sub: "Reponse sous 24h",
+                sub: "Réponse sous 24h",
               },
               {
                 icon: <MapPin className="w-5 h-5" />,
                 title: "Zone",
-                info: "France metropolitaine",
-                sub: "Tous departements",
+                info: "France métropolitaine",
+                sub: "Tous départements",
               },
             ].map((item) => (
               <div
                 key={item.title}
-                className="flex items-start gap-4 p-4 bg-white rounded-xl border"
+                className="flex items-start gap-4 p-4 bg-white rounded-xl border card-hover"
               >
                 <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0">
                   {item.icon}
@@ -97,10 +97,10 @@ export default function ContactPage() {
                   <CheckCircle className="w-8 h-8 text-green-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Message envoye !
+                  Message envoyé !
                 </h3>
                 <p className="text-gray-500">
-                  Nous vous repondrons dans les plus brefs delais.
+                  Nous vous répondrons dans les plus brefs délais.
                 </p>
               </div>
             ) : (

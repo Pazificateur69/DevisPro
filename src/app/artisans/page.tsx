@@ -68,11 +68,11 @@ export default function ArtisansPage() {
             <CheckCircle className="w-8 h-8 text-green-600" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Inscription enregistree !
+            Inscription enregistrée !
           </h2>
           <p className="text-gray-600">
-            Merci pour votre inscription. Notre equipe vous contactera dans les 48h pour
-            finaliser votre inscription et commencer a recevoir des leads.
+            Merci pour votre inscription. Notre équipe vous contactera dans les 48h pour
+            finaliser votre inscription et commencer à recevoir des leads.
           </p>
         </div>
       </div>
@@ -86,22 +86,22 @@ export default function ArtisansPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl font-extrabold mb-4">
-              Developpez votre activite
+              Développez votre activité
             </h1>
             <p className="text-lg text-green-100 mb-8">
-              Rejoignez notre reseau d&apos;artisans partenaires et recevez des
-              demandes de devis qualifiees dans votre zone.
+              Rejoignez notre réseau d&apos;artisans partenaires et recevez des
+              demandes de devis qualifiées dans votre zone.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 {
                   icon: <Euro className="w-6 h-6" />,
-                  title: "Leads qualifies",
-                  desc: "20 a 80 EUR par lead",
+                  title: "Leads qualifiés",
+                  desc: "20 à 80 € par lead",
                 },
                 {
                   icon: <Users className="w-6 h-6" />,
-                  title: "Clients cibles",
+                  title: "Clients ciblés",
                   desc: "Dans votre zone",
                 },
                 {
@@ -174,7 +174,7 @@ export default function ArtisansPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Telephone *
+                  Téléphone *
                 </label>
                 <input
                   type="tel"
@@ -188,7 +188,7 @@ export default function ArtisansPage() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Metier / Specialite *
+                Métier / Spécialité *
               </label>
               <select
                 value={formData.metier}
@@ -196,7 +196,7 @@ export default function ArtisansPage() {
                 className="w-full border-2 border-gray-200 rounded-xl p-3 text-gray-900 focus:border-green-600 focus:outline-none transition-colors"
                 required
               >
-                <option value="">Selectionnez votre specialite</option>
+                <option value="">Sélectionnez votre spécialité</option>
                 {services.map((s) => (
                   <option key={s.slug} value={s.slug}>
                     {s.name}
@@ -244,7 +244,7 @@ export default function ArtisansPage() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Numero SIRET *
+                Numéro SIRET *
               </label>
               <input
                 type="text"

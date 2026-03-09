@@ -39,7 +39,7 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+      <section className="hero-gradient text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
@@ -58,11 +58,11 @@ export default async function ServicePage({ params }: Props) {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
-                <span>Artisans verifies</span>
+                <span>Artisans vérifiés</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
-                <span>Reponse en 24h</span>
+                <span>Réponse en 24h</span>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default async function ServicePage({ params }: Props) {
             </div>
             <Link
               href="#formulaire"
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md"
             >
               Recevoir mes devis gratuits
               <ArrowRight className="w-4 h-4" />
@@ -98,15 +98,15 @@ export default async function ServicePage({ params }: Props) {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-4">
-                  Pourquoi faire appel a un professionnel ?
+                  Pourquoi faire appel à un professionnel ?
                 </h2>
                 <ul className="space-y-3">
                   {[
-                    "Diagnostic precis du probleme",
+                    "Diagnostic précis du problème",
                     "Intervention rapide et efficace",
                     "Garantie sur les travaux",
-                    "Conseils personnalises",
-                    "Materiel professionnel adapte",
+                    "Conseils personnalisés",
+                    "Matériel professionnel adapté",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -118,24 +118,24 @@ export default async function ServicePage({ params }: Props) {
 
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-4">
-                  Comment ca fonctionne ?
+                  Comment ça fonctionne ?
                 </h2>
                 <div className="space-y-4">
                   {[
                     {
                       step: "1",
-                      title: "Decrivez votre besoin",
+                      title: "Décrivez votre besoin",
                       desc: "Remplissez le formulaire en quelques clics",
                     },
                     {
                       step: "2",
                       title: "Recevez vos devis",
-                      desc: "Jusqu'a 3 artisans vous contactent sous 24h",
+                      desc: "Jusqu'à 3 artisans vous contactent sous 24h",
                     },
                     {
                       step: "3",
                       title: "Choisissez librement",
-                      desc: "Comparez et selectionnez sans engagement",
+                      desc: "Comparez et sélectionnez sans engagement",
                     },
                   ].map((item) => (
                     <div key={item.step} className="flex gap-4">
@@ -173,7 +173,7 @@ export default async function ServicePage({ params }: Props) {
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="flex items-center gap-3 p-4 rounded-xl border hover:border-blue-300 hover:bg-blue-50/50 transition-all"
+                className="flex items-center gap-3 p-4 rounded-xl border hover:border-blue-300 hover:bg-blue-50/50 transition-all card-hover"
               >
                 <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <ServiceIcon name={s.icon} className="w-5 h-5 text-blue-600" />

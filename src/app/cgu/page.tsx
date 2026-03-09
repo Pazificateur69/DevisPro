@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Conditions Generales d'Utilisation",
+  title: "Conditions Générales d'Utilisation",
   description: "CGU du site DevisPro - Conditions d'utilisation du service de mise en relation avec des artisans.",
 };
 
@@ -10,7 +10,7 @@ export default function CGUPage() {
     <div className="py-12 sm:py-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">
-          Conditions Generales d&apos;Utilisation
+          Conditions Générales d&apos;Utilisation
         </h1>
 
         <div className="prose prose-gray max-w-none space-y-8">
@@ -19,20 +19,20 @@ export default function CGUPage() {
               Article 1 - Objet
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Les presentes Conditions Generales d&apos;Utilisation (CGU)
-              regissent l&apos;utilisation du site DevisPro, service de mise en
+              Les présentes Conditions Générales d&apos;Utilisation (CGU)
+              régissent l&apos;utilisation du site DevisPro, service de mise en
               relation entre des particuliers ayant un besoin en travaux et des
-              artisans qualifies.
+              artisans qualifiés.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">
-              Article 2 - Service propose
+              Article 2 - Service proposé
             </h2>
             <p className="text-gray-700 leading-relaxed">
               DevisPro est un service gratuit pour les particuliers qui permet
-              de recevoir jusqu&apos;a 3 devis d&apos;artisans qualifies. Le
+              de recevoir jusqu&apos;à 3 devis d&apos;artisans qualifiés. Le
               service est accessible via le site internet et le formulaire de
               demande de devis.
             </p>
@@ -43,10 +43,10 @@ export default function CGUPage() {
               Article 3 - Inscription des particuliers
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              L&apos;utilisation du service ne necessite pas d&apos;inscription
-              prealable. Le particulier remplit un formulaire de demande de
-              devis en fournissant les informations necessaires : type de
-              service, description du besoin, code postal et coordonnees.
+              L&apos;utilisation du service ne nécessite pas d&apos;inscription
+              préalable. Le particulier remplit un formulaire de demande de
+              devis en fournissant les informations nécessaires : type de
+              service, description du besoin, code postal et coordonnées.
             </p>
           </section>
 
@@ -57,8 +57,8 @@ export default function CGUPage() {
             <p className="text-gray-700 leading-relaxed">
               Les artisans souhaitant recevoir des leads doivent s&apos;inscrire
               en fournissant leurs informations professionnelles (SIRET, zone
-              d&apos;intervention, specialite). L&apos;inscription est soumise a
-              validation par notre equipe.
+              d&apos;intervention, spécialité). L&apos;inscription est soumise à
+              validation par notre équipe.
             </p>
           </section>
 
@@ -67,31 +67,31 @@ export default function CGUPage() {
               Article 5 - Tarification artisans
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Les artisans partenaires paient pour chaque lead recu. Le prix du
-              lead varie de 20 a 80 EUR selon le type de prestation. Chaque lead
-              est envoye a un maximum de 3 artisans.
+              Les artisans partenaires paient pour chaque lead reçu. Le prix du
+              lead varie de 20 à 80 € selon le type de prestation. Chaque lead
+              est envoyé à un maximum de 3 artisans.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">
-              Article 6 - Protection des donnees
+              Article 6 - Protection des données
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Les donnees personnelles collectees sont traitees conformement au
-              RGPD. Les coordonnees des particuliers sont transmises uniquement
-              aux artisans selectionnes pour le devis. Pour plus
-              d&apos;informations, consultez nos mentions legales.
+              Les données personnelles collectées sont traitées conformément au
+              RGPD. Les coordonnées des particuliers sont transmises uniquement
+              aux artisans sélectionnés pour le devis. Pour plus
+              d&apos;informations, consultez nos mentions légales.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">
-              Article 7 - Responsabilite
+              Article 7 - Responsabilité
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              DevisPro agit exclusivement en tant qu&apos;intermediaire. Nous ne
-              sommes pas responsables de la qualite des travaux realises, des
+              DevisPro agit exclusivement en tant qu&apos;intermédiaire. Nous ne
+              sommes pas responsables de la qualité des travaux réalisés, des
               retards, ou de tout litige entre le particulier et l&apos;artisan.
             </p>
           </section>
@@ -101,9 +101,9 @@ export default function CGUPage() {
               Article 8 - Droit applicable
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Les presentes CGU sont soumises au droit francais. Tout litige
-              relatif a l&apos;interpretation ou a l&apos;execution des
-              presentes sera soumis aux tribunaux competents.
+              Les présentes CGU sont soumises au droit français. Tout litige
+              relatif à l&apos;interprétation ou à l&apos;exécution des
+              présentes sera soumis aux tribunaux compétents.
             </p>
           </section>
         </div>

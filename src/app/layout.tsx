@@ -15,35 +15,35 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://devispro.fr";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "DevisPro - Recevez jusqu'a 3 devis gratuits d'artisans qualifies",
+    default: "DevisPro - Recevez jusqu'à 3 devis gratuits d'artisans qualifiés",
     template: "%s | DevisPro",
   },
   description:
-    "Trouvez rapidement un artisan qualifie pres de chez vous. Recevez jusqu'a 3 devis gratuits en moins de 24h pour tous vos travaux : plomberie, chauffage, volets, nuisibles...",
+    "Trouvez rapidement un artisan qualifié près de chez vous. Recevez jusqu'à 3 devis gratuits en moins de 24h pour tous vos travaux : plomberie, chauffage, volets, nuisibles...",
   keywords: [
     "devis artisan",
     "devis gratuit",
-    "artisan qualifie",
+    "artisan qualifié",
     "travaux maison",
-    "reparation",
-    "depannage",
+    "réparation",
+    "dépannage",
     "plombier",
     "chauffagiste",
-    "electricien",
+    "électricien",
   ],
   openGraph: {
     type: "website",
     locale: "fr_FR",
     siteName: "DevisPro",
-    title: "DevisPro - Recevez jusqu'a 3 devis gratuits d'artisans qualifies",
+    title: "DevisPro - Recevez jusqu'à 3 devis gratuits d'artisans qualifiés",
     description:
-      "Trouvez rapidement un artisan qualifie pres de chez vous. Recevez jusqu'a 3 devis gratuits en moins de 24h.",
+      "Trouvez rapidement un artisan qualifié près de chez vous. Recevez jusqu'à 3 devis gratuits en moins de 24h.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DevisPro - Devis gratuits d'artisans qualifies",
+    title: "DevisPro - Devis gratuits d'artisans qualifiés",
     description:
-      "Recevez jusqu'a 3 devis gratuits en moins de 24h. Service 100% gratuit.",
+      "Recevez jusqu'à 3 devis gratuits en moins de 24h. Service 100% gratuit.",
   },
   alternates: {
     canonical: "/",

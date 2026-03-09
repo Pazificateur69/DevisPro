@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mentions legales",
-  description: "Mentions legales du site DevisPro",
+  title: "Mentions légales",
+  description: "Mentions légales du site DevisPro",
 };
 
 export default function MentionsLegalesPage() {
@@ -10,23 +10,23 @@ export default function MentionsLegalesPage() {
     <div className="py-12 sm:py-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">
-          Mentions legales
+          Mentions légales
         </h1>
 
         <div className="prose prose-gray max-w-none space-y-8">
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">
-              Editeur du site
+              Éditeur du site
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Le site DevisPro est edite par [Nom de la societe], [forme
-              juridique] au capital de [montant] euros, immatriculee au RCS de
-              [ville] sous le numero [numero RCS].
+              Le site DevisPro est édité par [Nom de la société], [forme
+              juridique] au capital de [montant] euros, immatriculée au RCS de
+              [ville] sous le numéro [numéro RCS].
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Siege social : [Adresse complete]
+              Siège social : [Adresse complète]
               <br />
-              Telephone : [Numero]
+              Téléphone : [Numéro]
               <br />
               Email : contact@devispro.fr
               <br />
@@ -36,45 +36,45 @@ export default function MentionsLegalesPage() {
 
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">
-              Hebergement
+              Hébergement
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Le site est heberge par Vercel Inc., 440 N Barranca Ave #4133,
-              Covina, CA 91723, Etats-Unis.
+              Le site est hébergé par Vercel Inc., 440 N Barranca Ave #4133,
+              Covina, CA 91723, États-Unis.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">
-              Propriete intellectuelle
+              Propriété intellectuelle
             </h2>
             <p className="text-gray-700 leading-relaxed">
               L&apos;ensemble des contenus du site DevisPro (textes, images,
-              graphismes, logo, icones, etc.) est protege par le droit
+              graphismes, logo, icônes, etc.) est protégé par le droit
               d&apos;auteur et le droit des marques. Toute reproduction ou
-              representation, totale ou partielle, est interdite sans
-              autorisation prealable.
+              représentation, totale ou partielle, est interdite sans
+              autorisation préalable.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">
-              Donnees personnelles
+              Données personnelles
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Conformement a la loi Informatique et Libertes du 6 janvier 1978
-              modifiee et au Reglement General sur la Protection des Donnees
-              (RGPD), vous disposez d&apos;un droit d&apos;acces, de
+              Conformément à la loi Informatique et Libertés du 6 janvier 1978
+              modifiée et au Règlement Général sur la Protection des Données
+              (RGPD), vous disposez d&apos;un droit d&apos;accès, de
               rectification, de suppression et d&apos;opposition sur vos
-              donnees personnelles.
+              données personnelles.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Les donnees collectees via les formulaires du site sont destinees
-              exclusivement a la mise en relation avec des artisans partenaires.
-              Elles ne sont jamais revendues a des tiers non partenaires.
+              Les données collectées via les formulaires du site sont destinées
+              exclusivement à la mise en relation avec des artisans partenaires.
+              Elles ne sont jamais revendues à des tiers non partenaires.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Pour exercer vos droits, contactez-nous a l&apos;adresse :
+              Pour exercer vos droits, contactez-nous à l&apos;adresse :
               rgpd@devispro.fr
             </p>
           </section>
@@ -84,7 +84,7 @@ export default function MentionsLegalesPage() {
               Cookies
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Le site DevisPro utilise des cookies techniques necessaires au
+              Le site DevisPro utilise des cookies techniques nécessaires au
               fonctionnement du site et des cookies d&apos;analyse pour mesurer
               l&apos;audience. Vous pouvez configurer votre navigateur pour
               refuser les cookies.
@@ -93,13 +93,13 @@ export default function MentionsLegalesPage() {
 
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">
-              Responsabilite
+              Responsabilité
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              DevisPro agit en tant qu&apos;intermediaire de mise en relation.
+              DevisPro agit en tant qu&apos;intermédiaire de mise en relation.
               Nous ne sommes pas partie prenante des contrats conclus entre les
-              particuliers et les artisans. Nous ne garantissons pas la qualite
-              des prestations realisees par les artisans partenaires.
+              particuliers et les artisans. Nous ne garantissons pas la qualité
+              des prestations réalisées par les artisans partenaires.
             </p>
           </section>
         </div>
