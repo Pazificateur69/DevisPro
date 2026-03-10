@@ -9,6 +9,11 @@ import {
   Flame,
   Wrench,
   ThermometerSun,
+  Zap,
+  Lock,
+  ShieldCheck,
+  Wind,
+  Paintbrush,
   type LucideProps,
 } from "lucide-react";
 
@@ -23,6 +28,11 @@ const iconMap: Record<string, React.ComponentType<LucideProps>> = {
   Flame,
   Wrench,
   ThermometerSun,
+  Zap,
+  Lock,
+  ShieldCheck,
+  Wind,
+  Paintbrush,
 };
 
 interface ServiceIconProps extends LucideProps {
