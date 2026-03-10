@@ -22,15 +22,23 @@ interface Props {
   params: Promise<{ slug: string; city: string }>;
 }
 
+// Pre-generate top 50 cities x all services at build time
+// Rest generated on-demand via ISR (cached after first visit)
 export async function generateStaticParams() {
+  const topCities = cities
+    .sort((a, b) => b.population - a.population)
+    .slice(0, 50);
   const params: { slug: string; city: string }[] = [];
   for (const service of services) {
-    for (const city of cities) {
+    for (const city of topCities) {
       params.push({ slug: service.slug, city: city.slug });
     }
   }
   return params;
 }
+
+export const dynamicParams = true;
+export const revalidate = 86400; // Revalidate every 24h
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, city: citySlug } = await params;

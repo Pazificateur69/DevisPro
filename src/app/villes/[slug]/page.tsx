@@ -22,9 +22,16 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+// Pre-generate top 100 cities at build time, rest via ISR
 export async function generateStaticParams() {
-  return cities.map((city) => ({ slug: city.slug }));
+  return cities
+    .sort((a, b) => b.population - a.population)
+    .slice(0, 100)
+    .map((city) => ({ slug: city.slug }));
 }
+
+export const dynamicParams = true;
+export const revalidate = 86400;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
