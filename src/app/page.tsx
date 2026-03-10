@@ -7,7 +7,6 @@ import {
   CheckCircle,
   Clock,
   Shield,
-  Star,
   ArrowRight,
   Users,
   Zap,
@@ -19,42 +18,34 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const testimonials = [
+const advantages = [
   {
-    name: "Marie L.",
-    location: "Lyon (69)",
-    text: "J\u2019ai recu 3 devis en moins de 2h pour ma fuite d\u2019eau. Le plombier choisi etait tres professionnel et ponctuel. Je recommande vivement\u00a0!",
-    rating: 5,
-    service: "Plomberie urgente",
+    title: "Comparaison facilitee",
+    text: "Recevez jusqu\u2019a 3 devis detailles pour comparer les prix et les prestations. Choisissez librement, sans aucune obligation.",
+    icon: "compare",
   },
   {
-    name: "Pierre D.",
-    location: "Bordeaux (33)",
-    text: "Service rapide et efficace. Mon volet roulant a ete repare le lendemain de ma demande. Tres satisfait du rapport qualite-prix.",
-    rating: 5,
-    service: "Reparation volets",
+    title: "Artisans qualifies",
+    text: "Nos artisans partenaires sont verifies : numero SIRET, assurance decennale et qualifications professionnelles controlees.",
+    icon: "verified",
   },
   {
-    name: "Sophie M.",
-    location: "Paris (75)",
-    text: "Excellente mise en relation. J\u2019ai pu comparer les prix et choisir l\u2019artisan qui me convenait le mieux. Aucune pression commerciale.",
-    rating: 5,
-    service: "Ramonage cheminee",
+    title: "Gratuit et sans engagement",
+    text: "Notre service de mise en relation est 100% gratuit pour les particuliers. Aucun frais cache, aucune obligation de signer.",
+    icon: "free",
   },
   {
-    name: "Thomas R.",
-    location: "Toulouse (31)",
-    text: "Probleme de punaises de lit regle en 48h grace a Renov Habitation. L\u2019artisan etait serieux et le traitement a ete tres efficace.",
-    rating: 5,
-    service: "Traitement nuisibles",
+    title: "Couverture nationale",
+    text: "Un reseau d\u2019artisans presents dans toute la France metropolitaine, pour intervenir au plus pres de chez vous.",
+    icon: "national",
   },
 ];
 
 const stats = [
-  { value: "15\u00a0000+", label: "Demandes traitees", icon: <Zap className="w-5 h-5" /> },
-  { value: "2\u00a0500+", label: "Artisans partenaires", icon: <Users className="w-5 h-5" /> },
-  { value: "98\u00a0%", label: "Clients satisfaits", icon: <HeartHandshake className="w-5 h-5" /> },
-  { value: "< 2h", label: "Temps de reponse", icon: <Clock className="w-5 h-5" /> },
+  { value: "500\u00a0000+", label: "Artisans du batiment en France", icon: <Users className="w-5 h-5" /> },
+  { value: "75\u00a0%", label: "Des logements ont plus de 30 ans", icon: <Clock className="w-5 h-5" /> },
+  { value: "50\u00a0Mds\u00a0€", label: "Marche annuel de la renovation", icon: <TrendingUp className="w-5 h-5" /> },
+  { value: "7\u00a0M", label: "Logements energivores en France", icon: <Zap className="w-5 h-5" /> },
 ];
 
 const topCities = [
@@ -74,7 +65,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-indigo-200" />
           <span className="text-indigo-100">
-            <strong className="text-white">12 artisans disponibles</strong> dans votre zone — Reponse en moins de 2h
+            <strong className="text-white">Demande gratuite et sans engagement</strong> — Comparez les devis d&apos;artisans qualifies
           </span>
         </div>
       </div>
@@ -183,14 +174,14 @@ export default function HomePage() {
                 icon: <Clock className="w-6 h-6" />,
                 step: "02",
                 title: "Recevez vos devis",
-                description: "En moins de 24h, recevez jusqu&apos;a 3 devis detailles d&apos;artisans qualifies proches de chez vous.",
+                description: "En moins de 24h, recevez jusqu\u2019\u00e0 3 devis d\u00e9taill\u00e9s d\u2019artisans qualifi\u00e9s proches de chez vous.",
                 color: "from-violet-500 to-violet-600",
               },
               {
                 icon: <Shield className="w-6 h-6" />,
                 step: "03",
                 title: "Choisissez le meilleur",
-                description: "Comparez les prix et les avis, puis choisissez l&apos;artisan qui vous convient. Sans engagement.",
+                description: "Comparez les prix et les avis, puis choisissez l\u2019artisan qui vous convient. Sans engagement.",
                 color: "from-emerald-500 to-emerald-600",
               },
             ].map((item) => (
@@ -347,70 +338,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Advantages */}
       <section className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">
-              <Star className="w-3.5 h-3.5" />
-              Temoignages
+              <CheckCircle className="w-3.5 h-3.5" />
+              Nos avantages
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-              Ce que disent nos clients
+              Pourquoi choisir Renov Habitation ?
             </h2>
             <p className="text-slate-500 max-w-lg mx-auto text-base">
-              Des milliers de particuliers nous font confiance
+              Un service simple, transparent et gratuit pour vos travaux
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="bg-white rounded-2xl p-6 card-hover border border-slate-100">
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-3.5 h-3.5 ${
-                        i < testimonial.rating ? "text-amber-400 fill-amber-400" : "text-slate-200 fill-slate-200"
-                      }`}
-                    />
-                  ))}
+            {advantages.map((advantage) => (
+              <div key={advantage.title} className="bg-white rounded-2xl p-6 card-hover border border-slate-100">
+                <div className="w-11 h-11 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600">
+                  {advantage.icon === "compare" && <TrendingUp className="w-5 h-5" />}
+                  {advantage.icon === "verified" && <Shield className="w-5 h-5" />}
+                  {advantage.icon === "free" && <HeartHandshake className="w-5 h-5" />}
+                  {advantage.icon === "national" && <MapPin className="w-5 h-5" />}
                 </div>
-                <p className="text-slate-600 text-sm mb-5 leading-relaxed">
-                  &ldquo;{testimonial.text}&rdquo;
+                <h3 className="font-bold text-slate-900 text-[15px] mb-2">{advantage.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  {advantage.text}
                 </p>
-                <div className="flex items-center justify-between border-t border-slate-100 pt-4">
-                  <div>
-                    <div className="font-semibold text-slate-900 text-[13px]">{testimonial.name}</div>
-                    <div className="text-xs text-slate-400 flex items-center gap-1 mt-0.5">
-                      <MapPin className="w-3 h-3" />
-                      {testimonial.location}
-                    </div>
-                  </div>
-                  <span className="text-[11px] bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-full font-semibold">
-                    {testimonial.service}
-                  </span>
-                </div>
               </div>
             ))}
           </div>
-          {/* Trust bar */}
+          {/* CTA bar */}
           <div className="mt-8 bg-white rounded-2xl border border-slate-100 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {["M", "P", "S", "T", "A"].map((initial, i) => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 text-white text-[11px] font-bold flex items-center justify-center ring-2 ring-white">
-                    {initial}
-                  </div>
-                ))}
+              <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center">
+                <Zap className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                  ))}
-                  <span className="text-sm font-bold text-slate-900 ml-1">4.9/5</span>
+                <div className="text-sm font-bold text-slate-900">
+                  Service gratuit et sans engagement
                 </div>
-                <p className="text-xs text-slate-400">Base sur +2 500 avis clients verifies</p>
+                <p className="text-xs text-slate-400">Comparez jusqu&apos;a 3 devis d&apos;artisans verifies</p>
               </div>
             </div>
             <Link
@@ -446,7 +415,7 @@ export default function HomePage() {
               {
                 icon: <Zap className="w-7 h-7" />,
                 title: "Reponse rapide",
-                desc: "En moyenne, vous recevez votre premier devis en moins de 2 heures.",
+                desc: "Recevez vos devis au plus vite. Nos artisans sont reactifs et disponibles.",
                 color: "from-amber-500 to-orange-500",
                 bg: "bg-amber-50",
               },
@@ -459,6 +428,39 @@ export default function HomePage() {
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
                 <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Institutions */}
+      <section className="py-16 sm:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">
+              <Shield className="w-3.5 h-3.5" />
+              Sources fiables
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+              Donnees basees sur des sources officielles
+            </h2>
+            <p className="text-slate-500 max-w-lg mx-auto text-sm">
+              Nos informations s&apos;appuient sur les donnees des organismes de reference du secteur
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { name: "FFB", desc: "Federation Francaise du Batiment" },
+              { name: "INSEE", desc: "Institut National de la Statistique" },
+              { name: "ADEME", desc: "Agence de la transition ecologique" },
+              { name: "CAPEB", desc: "Artisans du batiment" },
+            ].map((org) => (
+              <div key={org.name} className="text-center p-5 rounded-2xl border border-slate-100 bg-white card-hover">
+                <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <span className="text-sm font-extrabold text-slate-700">{org.name}</span>
+                </div>
+                <p className="text-xs text-slate-400 font-medium">{org.desc}</p>
               </div>
             ))}
           </div>

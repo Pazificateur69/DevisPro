@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import JsonLd, { getOrganizationJsonLd } from "@/components/JsonLd";
+import JsonLd, { getOrganizationJsonLd, getLocalBusinessJsonLd } from "@/components/JsonLd";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
@@ -60,6 +60,7 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <JsonLd data={getOrganizationJsonLd()} />
+        <JsonLd data={getLocalBusinessJsonLd()} />
       </head>
       <body className={`${inter.className} antialiased`}>
         <Header />

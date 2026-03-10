@@ -140,6 +140,21 @@ export default async function BlogPostPage({ params }: Props) {
                 ))}
               </div>
 
+              {/* Internal link CTA */}
+              <div className="mt-8 p-6 bg-indigo-50 rounded-2xl border border-indigo-100">
+                <p className="text-sm font-semibold text-slate-900 mb-2">Besoin d&apos;un artisan ?</p>
+                <p className="text-sm text-slate-600 mb-4">
+                  Recevez jusqu&apos;a 3 devis gratuits pour {post.title.toLowerCase().includes("fuite") ? "une recherche de fuite" : post.title.toLowerCase().includes("volet") ? "vos volets roulants" : "vos travaux"}.
+                </p>
+                <Link
+                  href={`/services/${post.serviceSlug}`}
+                  className="btn-accent inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold"
+                >
+                  Demander un devis gratuit
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
               {/* CTA */}
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
                 <h3 className="font-bold text-gray-900 mb-2">

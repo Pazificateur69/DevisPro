@@ -36,7 +36,9 @@ Les facteurs qui influencent le prix final sont la surface a inspecter, l'access
 
 La prise en charge par l'assurance est possible dans le cadre d'un degat des eaux declare. La convention IRSI definit les regles de repartition des frais entre les differents assureurs concernes.
 
-Pour obtenir le meilleur tarif, nous recommandons de comparer au moins 3 devis de professionnels differents. C'est exactement ce que Renov Habitation vous propose : recevez gratuitement 3 devis d'artisans qualifies pres de chez vous.`,
+Pour obtenir le meilleur tarif, nous recommandons de comparer au moins 3 devis de professionnels differents. C'est exactement ce que Renov Habitation vous propose : recevez gratuitement 3 devis d'artisans qualifies pres de chez vous.
+
+Besoin d'un artisan pour une recherche de fuite d'eau ? Recevez 3 devis gratuits via notre service de mise en relation : rendez-vous sur notre page recherche de fuite d'eau.`,
     faq: [
       { question: "Quel est le prix moyen d'une recherche de fuite en 2026 ?", answer: "Le prix moyen se situe entre 150 et 500 EUR selon la methode de detection utilisee. La detection acoustique est la moins couteuse, le gaz traceur la plus onereuse." },
       { question: "L'assurance prend-elle en charge les frais ?", answer: "Dans le cadre d'un degat des eaux declare, votre assurance habitation peut couvrir tout ou partie des frais de recherche de fuite selon votre contrat." },
@@ -65,7 +67,9 @@ Verifications a faire avant d'appeler un professionnel : verifiez le tableau ele
 
 Quand appeler un professionnel : si le moteur fait du bruit mais le volet ne bouge pas, si le tablier est visiblement endommage, si le probleme persiste apres les verifications de base, si le volet est bloque en position ouverte (risque de securite).
 
-Le cout de reparation varie de 80 a 400 EUR selon la nature de la panne. Un simple reglage coute moins de 100 EUR, tandis que le remplacement d'un moteur peut couter jusqu'a 400 EUR.`,
+Le cout de reparation varie de 80 a 400 EUR selon la nature de la panne. Un simple reglage coute moins de 100 EUR, tandis que le remplacement d'un moteur peut couter jusqu'a 400 EUR.
+
+Besoin de faire reparer vos volets roulants ? Comparez les devis de plusieurs artisans qualifies sur notre page reparation volets roulants.`,
     faq: [
       { question: "Pourquoi mon volet roulant electrique ne repond plus ?", answer: "Les causes les plus frequentes sont un disjoncteur saute, des piles de telecommande usees, un moteur en panne ou une carte electronique defaillante." },
       { question: "Comment debloquer un volet roulant manuellement ?", answer: "Si le volet est electrique, utilisez la manoeuvre de secours (manivelle ou cordon). Pour un volet manuel, verifiez la sangle et le mecanisme d'enroulement." },
@@ -98,7 +102,9 @@ Vapeur seche : projection de vapeur a 180 degres. Souvent utilisee en complement
 
 Preparation du logement avant traitement : lavez tout le linge a 60 degres minimum, aspirez minutieusement toutes les surfaces, debarrassez les encombrements pour faciliter l'acces, isolez les vetements propres dans des sacs hermetiques.
 
-Prevention : a l'hotel, inspectez le matelas et la tete de lit avant de vous installer. Apres un voyage, lavez tous vos vetements a 60 degres. Evitez de ramasser des meubles dans la rue. Inspectez regulierement votre literie.`,
+Prevention : a l'hotel, inspectez le matelas et la tete de lit avant de vous installer. Apres un voyage, lavez tous vos vetements a 60 degres. Evitez de ramasser des meubles dans la rue. Inspectez regulierement votre literie.
+
+Besoin d'un traitement contre les nuisibles ? Recevez jusqu'a 3 devis gratuits d'artisans specialises via notre page traitement nuisibles.`,
     faq: [
       { question: "Les punaises de lit sont-elles dangereuses ?", answer: "Les punaises de lit ne transmettent pas de maladies, mais leurs piqures causent des demangeaisons intenses et peuvent provoquer des reactions allergiques. Le stress et l'insomnie lies a l'infestation affectent la qualite de vie." },
       { question: "Peut-on eliminer les punaises de lit soi-meme ?", answer: "Pour une infestation legere, c'est possible avec de la terre de diatomee et un nettoyage minutieux. Pour une infestation etablie, un traitement professionnel est fortement recommande." },

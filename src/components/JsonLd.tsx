@@ -79,3 +79,26 @@ export function getFAQJsonLd(
     })),
   };
 }
+
+export function getLocalBusinessJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Renov Habitation",
+    url: "https://renov-habitation.fr",
+    description: "Mise en relation gratuite avec des artisans qualifies pour tous vos travaux.",
+    telephone: "+33800000000",
+    email: "contact@renov-habitation.fr",
+    areaServed: {
+      "@type": "Country",
+      name: "France",
+    },
+    priceRange: "€€",
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  };
+}
