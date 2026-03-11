@@ -7,6 +7,8 @@ import DevisForm from "@/components/DevisForm";
 import ServiceIcon from "@/components/ServiceIcon";
 import JsonLd, { getServiceJsonLd, getFAQJsonLd } from "@/components/JsonLd";
 import Breadcrumbs, { getBreadcrumbJsonLd } from "@/components/Breadcrumbs";
+import { generateDepartmentSlug, generateRegionSlug } from "@/components/InternalLinking";
+import { getCitySize, getRegionContext } from "@/lib/seo-content";
 import {
   CheckCircle,
   ArrowRight,
@@ -16,17 +18,19 @@ import {
   Star,
   Users,
   Phone,
+  Building2,
+  Globe,
 } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
-// Pre-generate top 100 cities at build time, rest via ISR
+// Pre-generate top 200 cities at build time, rest via ISR
 export async function generateStaticParams() {
   return cities
     .sort((a, b) => b.population - a.population)
-    .slice(0, 100)
+    .slice(0, 200)
     .map((city) => ({ slug: city.slug }));
 }
 
@@ -112,9 +116,14 @@ export default async function CityPage({ params }: Props) {
 
   const nearbyCities = getCitiesByRegion(city.region)
     .filter((c) => c.slug !== city.slug)
-    .slice(0, 12);
+    .sort((a, b) => b.population - a.population)
+    .slice(0, 16);
 
   const faqItems = getCityFAQ(city.name, city.departmentCode, city.department);
+  const citySize = getCitySize(city.population);
+  const regionContext = getRegionContext(city.region);
+  const departmentSlug = generateDepartmentSlug(city.department);
+  const regionSlug = generateRegionSlug(city.region);
 
   const breadcrumbItems = [
     { name: "Villes", url: "/villes" },
@@ -414,9 +423,61 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Villes proches */}
+      {/* Contexte local SEO */}
+      <section className="py-14 sm:py-20 border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div>
+              <h2 className="text-2xl font-extrabold text-gray-900 mb-4">
+                Artisans à {city.name} : votre contexte local
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                {city.name} est {citySize === "metropole" ? "une métropole majeure" : citySize === "grande_ville" ? "une grande ville" : citySize === "ville_moyenne" ? "une ville dynamique" : "une commune"} du {city.department} ({city.departmentCode}), en région {city.region}, avec {city.population.toLocaleString("fr-FR")} habitants. Le patrimoine immobilier local est caractérisé par {regionContext.architecture}, dans un {regionContext.climate}.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Les besoins spécifiques des habitants de {city.name} en matière de travaux incluent : {regionContext.specificNeeds}. Nos {services.length} services couvrent l&apos;ensemble de ces besoins avec des artisans locaux qualifiés.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={`/departements/${departmentSlug}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-xl text-sm font-medium hover:bg-indigo-100 transition-colors"
+                >
+                  <Building2 className="w-4 h-4" />
+                  Artisans dans le {city.department} ({city.departmentCode})
+                </Link>
+                <Link
+                  href={`/regions/${regionSlug}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-xl text-sm font-medium hover:bg-indigo-100 transition-colors"
+                >
+                  <Globe className="w-4 h-4" />
+                  Artisans en {city.region}
+                </Link>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                Top services demandés à {city.name}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {services.slice(0, 8).map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/services/${s.slug}/${city.slug}`}
+                    className="flex items-center gap-2 p-3 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/30 transition-all text-sm"
+                  >
+                    <ServiceIcon name={s.icon} className="w-4 h-4 text-indigo-500" />
+                    <span className="text-gray-700 font-medium truncate">{s.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Villes proches - expanded */}
       {nearbyCities.length > 0 && (
-        <section className="py-14 sm:py-20 border-t">
+        <section className="bg-gray-50 py-14 sm:py-20 border-t">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-gray-900 mb-3">
               Artisans dans les villes proches de {city.name}
@@ -425,12 +486,12 @@ export default async function CityPage({ params }: Props) {
               Nous intervenons également dans ces villes du {city.department} et
               de la région {city.region}
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3">
               {nearbyCities.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/villes/${c.slug}`}
-                  className="flex flex-col items-center p-4 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/30 transition-all card-hover text-center"
+                  className="flex flex-col items-center p-4 rounded-2xl border border-gray-100 bg-white hover:border-indigo-200 hover:bg-indigo-50/30 transition-all card-hover text-center"
                 >
                   <MapPin className="w-4 h-4 text-indigo-400 mb-1.5" />
                   <span className="text-sm font-bold text-gray-900 mb-0.5">

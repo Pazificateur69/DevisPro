@@ -3,10 +3,15 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { services, getServiceBySlug } from "@/lib/services";
 import { cities, getCityBySlug, getCitiesByRegion } from "@/lib/cities";
+import { getLongTailByService } from "@/lib/longtail";
+import { comparatifs } from "@/lib/comparatifs";
+import { glossaryTerms } from "@/lib/glossaire";
 import DevisForm from "@/components/DevisForm";
 import ServiceIcon from "@/components/ServiceIcon";
 import JsonLd, { getServiceJsonLd, getFAQJsonLd } from "@/components/JsonLd";
 import Breadcrumbs, { getBreadcrumbJsonLd } from "@/components/Breadcrumbs";
+import { ServiceCityInternalLinks } from "@/components/InternalLinking";
+import { getCityServiceSEOContent } from "@/lib/seo-content";
 import {
   CheckCircle,
   ArrowRight,
@@ -16,18 +21,20 @@ import {
   Star,
   Phone,
   Euro,
+  Home as HomeIcon,
+  ThermometerSun,
 } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string; city: string }>;
 }
 
-// Pre-generate top 50 cities x all services at build time
+// Pre-generate top 200 cities x all services at build time
 // Rest generated on-demand via ISR (cached after first visit)
 export async function generateStaticParams() {
   const topCities = cities
     .sort((a, b) => b.population - a.population)
-    .slice(0, 50);
+    .slice(0, 200);
   const params: { slug: string; city: string }[] = [];
   for (const service of services) {
     for (const city of topCities) {
@@ -80,37 +87,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function getServiceCityFAQ(
-  serviceName: string,
-  cityName: string,
-  departmentCode: string,
-  department: string,
-  priceRange: string
-) {
-  return [
-    {
-      question: `Quel est le prix ${serviceName.toLowerCase().startsWith("d") || serviceName.toLowerCase().startsWith("e") || serviceName.toLowerCase().startsWith("n") ? "d'" : "de "}${serviceName.toLowerCase()} à ${cityName} ?`,
-      answer: `Le prix moyen pour ${serviceName.toLowerCase()} à ${cityName} (${departmentCode}) se situe entre ${priceRange}. Ce tarif peut varier selon la complexité de l'intervention, l'urgence et les spécificités de votre situation. Demandez vos devis gratuits pour obtenir un prix précis.`,
-    },
-    {
-      question: `Comment trouver un artisan pour ${serviceName.toLowerCase()} à ${cityName} ?`,
-      answer: `Avec Renov Habitation, trouvez facilement un artisan qualifié pour ${serviceName.toLowerCase()} à ${cityName}. Remplissez notre formulaire gratuit en 2 minutes et recevez jusqu'à 3 devis d'artisans vérifiés du ${department} sous 24h.`,
-    },
-    {
-      question: `Les artisans pour ${serviceName.toLowerCase()} à ${cityName} sont-ils assurés ?`,
-      answer: `Oui, tous nos artisans partenaires à ${cityName} disposent d'une assurance décennale et d'une responsabilité civile professionnelle. Nous vérifions systématiquement leurs qualifications et certifications avant de les référencer.`,
-    },
-    {
-      question: `En combien de temps peut-on intervenir pour ${serviceName.toLowerCase()} à ${cityName} ?`,
-      answer: `Nos artisans partenaires à ${cityName} et dans le ${department} vous contactent sous 24h maximum. Pour les interventions urgentes, un dépannage le jour même est souvent possible selon les disponibilités.`,
-    },
-    {
-      question: `Le devis pour ${serviceName.toLowerCase()} à ${cityName} est-il gratuit ?`,
-      answer: `Oui, notre service est 100% gratuit et sans engagement. Vous recevez jusqu'à 3 devis d'artisans qualifiés à ${cityName} sans aucun frais. Vous êtes libre de choisir l'artisan qui vous convient le mieux.`,
-    },
-  ];
-}
-
 export default async function CityServicePage({ params }: Props) {
   const { slug, city: citySlug } = await params;
   const service = getServiceBySlug(slug);
@@ -120,23 +96,45 @@ export default async function CityServicePage({ params }: Props) {
     notFound();
   }
 
+  // Get ultra-personalized SEO content
+  const seoContent = getCityServiceSEOContent(
+    city.name,
+    city.population,
+    city.department,
+    city.departmentCode,
+    city.region,
+    service.name,
+    service.slug,
+    city.slug,
+    service.priceRange
+  );
+
+  // Nearby cities for internal linking (expanded to 16)
   const nearbyCities = cities
     .filter(
       (c) =>
         c.slug !== city.slug &&
         (c.departmentCode === city.departmentCode || c.region === city.region)
     )
-    .slice(0, 8);
+    .sort((a, b) => b.population - a.population)
+    .slice(0, 16);
 
   const otherServices = services.filter((s) => s.slug !== slug);
 
-  const faqItems = getServiceCityFAQ(
-    service.name,
-    city.name,
-    city.departmentCode,
-    city.department,
-    service.priceRange
-  );
+  // Related content for maillage interne
+  const relatedGuides = getLongTailByService(service.slug).map((g) => ({
+    slug: g.slug,
+    title: g.title,
+  }));
+
+  const relatedComparatifs = comparatifs
+    .filter((c) => c.relatedServiceSlug === service.slug)
+    .map((c) => ({ slug: c.slug, title: c.title }));
+
+  const relatedGlossary = glossaryTerms
+    .filter((t) => t.relatedServiceSlug === service.slug)
+    .slice(0, 5)
+    .map((t) => ({ slug: t.slug, term: t.term }));
 
   const breadcrumbItems = [
     { name: "Services", url: "/services" },
@@ -154,7 +152,7 @@ export default async function CityServicePage({ params }: Props) {
           service.priceRange
         )}
       />
-      <JsonLd data={getFAQJsonLd(faqItems)} />
+      <JsonLd data={getFAQJsonLd(seoContent.faqItems)} />
       <JsonLd data={getBreadcrumbJsonLd(breadcrumbItems)} />
 
       {/* Hero */}
@@ -240,44 +238,45 @@ export default async function CityServicePage({ params }: Props) {
         </div>
       </section>
 
-      {/* Main content */}
+      {/* Main content - Ultra personalized */}
       <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-            {/* Left: SEO content */}
+            {/* Left: Ultra-personalized SEO content */}
             <div className="lg:col-span-2 space-y-8">
+              {/* Introduction personnalisée par ville */}
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-3">
                   {service.name} à {city.name} : trouvez le bon artisan
                 </h2>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  Vous recherchez un professionnel pour{" "}
-                  {service.name.toLowerCase()} à {city.name} (
-                  {city.departmentCode}) ? Notre plateforme vous met en relation
-                  avec des artisans qualifiés et vérifiés dans le{" "}
-                  {city.department} et ses environs. Avec plus de{" "}
-                  {city.population.toLocaleString("fr-FR")} habitants,{" "}
-                  {city.name} dispose d&apos;un réseau dense de professionnels
-                  prêts à intervenir rapidement.
+                  {seoContent.introText}
                 </p>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
 
+              {/* Expertise locale - contexte régional */}
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  <span className="flex items-center gap-2">
+                    <HomeIcon className="w-5 h-5 text-indigo-600" />
+                    Expertise locale à {city.name}
+                  </span>
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {seoContent.localExpertiseText}
+                </p>
+              </div>
+
+              {/* Why choose us - personnalisé */}
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
                   Pourquoi passer par Renov Habitation à {city.name} ?
                 </h3>
                 <ul className="space-y-2.5">
-                  {[
-                    `Artisans locaux vérifiés à ${city.name} et dans le ${city.department}`,
-                    "Jusqu'à 3 devis gratuits pour comparer les prix",
-                    "Réponse garantie en moins de 24h",
-                    "Service 100% gratuit et sans engagement",
-                    "Artisans assurés (décennale + RC Pro)",
-                    `Intervention rapide sur ${city.name} et communes voisines`,
-                  ].map((item) => (
+                  {seoContent.whyChooseUsItems.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
                       <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700 text-sm">{item}</span>
@@ -286,21 +285,31 @@ export default async function CityServicePage({ params }: Props) {
                 </ul>
               </div>
 
+              {/* Pricing context - personnalisé par région */}
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
-                  Prix {service.name.toLowerCase()} à {city.name}
+                  <span className="flex items-center gap-2">
+                    <ThermometerSun className="w-5 h-5 text-indigo-600" />
+                    Prix {service.name.toLowerCase()} à {city.name}
+                  </span>
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-3">
-                  Le coût moyen pour {service.name.toLowerCase()} à {city.name}{" "}
-                  se situe entre{" "}
-                  <strong className="text-gray-900">{service.priceRange}</strong>
-                  . Ce tarif peut varier en fonction de la nature exacte de
-                  l&apos;intervention, de l&apos;urgence et des conditions
-                  d&apos;accès. Pour obtenir un prix précis, demandez vos devis
-                  gratuits.
+                  {seoContent.pricingContextText}
                 </p>
+                <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-100">
+                  <div className="text-sm text-indigo-900 font-semibold mb-1">
+                    Fourchette de prix à {city.name}
+                  </div>
+                  <div className="text-2xl font-extrabold text-indigo-700">
+                    {service.priceRange}
+                  </div>
+                  <div className="text-xs text-indigo-600 mt-1">
+                    Prix moyen constaté dans le {city.department} ({city.departmentCode})
+                  </div>
+                </div>
               </div>
 
+              {/* Zone d'intervention */}
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
                   Zone d&apos;intervention autour de {city.name}
@@ -312,7 +321,43 @@ export default async function CityServicePage({ params }: Props) {
                   en centre-ville ou en périphérie de {city.name}, un
                   professionnel qualifié peut se déplacer chez vous rapidement.
                 </p>
+                {/* Quick links to nearby cities */}
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {nearbyCities.slice(0, 6).map((c) => (
+                    <Link
+                      key={c.slug}
+                      href={`/services/${slug}/${c.slug}`}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-gray-100 hover:bg-indigo-50 hover:text-indigo-700 rounded-lg text-xs text-gray-600 transition-colors"
+                    >
+                      <MapPin className="w-3 h-3" />
+                      {c.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
+
+              {/* Related guides links for SEO */}
+              {relatedGuides.length > 0 && (
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                    Guides et conseils
+                  </h3>
+                  <div className="space-y-2">
+                    {relatedGuides.map((guide) => (
+                      <Link
+                        key={guide.slug}
+                        href={`/guide/${guide.slug}`}
+                        className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 transition-colors group"
+                      >
+                        <ArrowRight className="w-3.5 h-3.5 text-indigo-500 group-hover:translate-x-0.5 transition-transform" />
+                        <span className="text-sm text-gray-700 group-hover:text-indigo-700">
+                          {guide.title}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Right: Form */}
@@ -323,7 +368,7 @@ export default async function CityServicePage({ params }: Props) {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section - Ultra personalized with 8+ questions */}
       <section className="bg-gray-50 py-12 sm:py-16 border-t">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-gray-900 mb-2 text-center">
@@ -331,10 +376,10 @@ export default async function CityServicePage({ params }: Props) {
           </h2>
           <p className="text-sm text-gray-500 text-center mb-8">
             Tout savoir sur {service.name.toLowerCase()} à {city.name} (
-            {city.departmentCode})
+            {city.departmentCode}) - {city.region}
           </p>
           <div className="space-y-3">
-            {faqItems.map((faq, index) => (
+            {seoContent.faqItems.map((faq, index) => (
               <details
                 key={index}
                 className="group bg-white rounded-xl border border-gray-100 overflow-hidden"
@@ -353,85 +398,24 @@ export default async function CityServicePage({ params }: Props) {
         </div>
       </section>
 
-      {/* Nearby cities */}
-      {nearbyCities.length > 0 && (
-        <section className="py-12 sm:py-16 border-t">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-2">
-              {service.name} dans les villes proches de {city.name}
-            </h2>
-            <p className="text-sm text-gray-500 mb-6">
-              Nous intervenons également dans ces villes du {city.department} et
-              de la région {city.region}
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-              {nearbyCities.map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/services/${slug}/${c.slug}`}
-                  className="p-3 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/30 transition-all text-center card-hover"
-                >
-                  <div className="flex items-center justify-center gap-1 mb-1">
-                    <MapPin className="w-3 h-3 text-indigo-500" />
-                    <span className="text-sm font-medium text-gray-900 truncate">
-                      {c.name}
-                    </span>
-                  </div>
-                  <span className="text-xs text-gray-400">
-                    {c.departmentCode}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Other services in this city */}
-      <section className="bg-gray-50 py-12 sm:py-16 border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-2">
-            Tous nos services à {city.name}
-          </h2>
-          <p className="text-sm text-gray-500 mb-6">
-            Découvrez tous les services disponibles à {city.name} (
-            {city.departmentCode})
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {otherServices.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}/${city.slug}`}
-                className="flex items-center gap-3 p-4 rounded-xl border border-gray-100 bg-white hover:border-indigo-200 hover:bg-indigo-50/30 transition-all card-hover"
-              >
-                <div className="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <ServiceIcon
-                    name={s.icon}
-                    className="w-5 h-5 text-indigo-600"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <span className="text-sm font-medium text-gray-900 block truncate">
-                    {s.name}
-                  </span>
-                  <span className="text-xs text-gray-400">
-                    à {city.name} - {s.priceRange}
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-6 text-center">
-            <Link
-              href={`/villes/${city.slug}`}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
-            >
-              Voir tous les artisans à {city.name}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Maillage interne - Comprehensive internal linking */}
+      <ServiceCityInternalLinks
+        currentServiceSlug={slug}
+        currentCitySlug={citySlug}
+        cityName={city.name}
+        department={city.department}
+        departmentCode={city.departmentCode}
+        region={city.region}
+        services={otherServices.map((s) => ({ slug: s.slug, name: s.name }))}
+        nearbyCities={nearbyCities.map((c) => ({
+          slug: c.slug,
+          name: c.name,
+          departmentCode: c.departmentCode,
+        }))}
+        relatedGuides={relatedGuides}
+        relatedComparatifs={relatedComparatifs}
+        relatedGlossary={relatedGlossary}
+      />
 
       {/* CTA */}
       <section className="hero-gradient text-white py-14">

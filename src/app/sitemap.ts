@@ -5,10 +5,14 @@ import { longTailPages } from "@/lib/longtail";
 import { blogPosts } from "@/lib/blog";
 import { getAllRegions } from "@/lib/regions";
 import { getDepartments } from "@/lib/departements";
+import { glossaryTerms } from "@/lib/glossaire";
+import { comparatifs } from "@/lib/comparatifs";
+import { urgenceData } from "@/lib/urgence";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://renov-habitation.fr";
 
+// Split sitemap into chunks for large sites (Google limit: 50,000 URLs per sitemap)
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -33,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/cgu`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  // Service pages (15)
+  // Service pages (25)
   const servicePages: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${BASE_URL}/services/${service.slug}`,
     lastModified: now,
@@ -49,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Department pages (~100)
+  // Department pages (~110)
   const departmentPages: MetadataRoute.Sitemap = getDepartments().map(
     (dept) => ({
       url: `${BASE_URL}/departements/${dept.slug}`,
@@ -59,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  // City pages (1045)
+  // City pages (~1245)
   const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
     url: `${BASE_URL}/villes/${city.slug}`,
     lastModified: now,
@@ -67,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // City + service pages (15,675)
+  // City + service pages (~31,125) - the main volume driver
   const cityServicePages: MetadataRoute.Sitemap = [];
   for (const service of services) {
     for (const city of cities) {
@@ -80,7 +84,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Blog posts (55)
+  // Blog posts
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.publishedAt),
@@ -96,12 +100,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  // Prix pages (15)
+  // Prix pages (25)
   const prixPages: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${BASE_URL}/prix/${service.slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.6,
+  }));
+
+  // Glossaire individual term pages
+  const glossairePages: MetadataRoute.Sitemap = glossaryTerms.map((term) => ({
+    url: `${BASE_URL}/glossaire/${term.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  // Comparatif pages
+  const comparatifPages: MetadataRoute.Sitemap = comparatifs.map((comp) => ({
+    url: `${BASE_URL}/comparatif/${comp.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  // Urgence pages
+  const urgencePages: MetadataRoute.Sitemap = urgenceData.map((urg) => ({
+    url: `${BASE_URL}/urgence/${urg.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
 
   return [
@@ -114,5 +142,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPages,
     ...guidePages,
     ...prixPages,
+    ...glossairePages,
+    ...comparatifPages,
+    ...urgencePages,
   ];
 }
