@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Conditions Générales d'Utilisation",
   description: "CGU du site Renov Habitation - Conditions d'utilisation du service de mise en relation avec des artisans.",
+  alternates: {
+    canonical: "/cgu",
+  },
 };
 
 export default function CGUPage() {

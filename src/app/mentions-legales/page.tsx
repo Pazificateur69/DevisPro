@@ -2,7 +2,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
-  description: "Mentions légales du site Renov Habitation",
+  description: "Mentions légales du site Renov Habitation - Informations sur l'éditeur du site et les conditions d'utilisation.",
+  alternates: {
+    canonical: "/mentions-legales",
+  },
 };
 
 export default function MentionsLegalesPage() {
