@@ -120,7 +120,7 @@ export default async function ServicePage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-sm text-gray-500">Prix indicatif :</span>
+              <span className="text-sm text-slate-500">Prix indicatif :</span>
               <span className="ml-2 text-lg font-bold text-indigo-600">
                 {service.priceRange}
               </span>
@@ -143,7 +143,7 @@ export default async function ServicePage({ params }: Props) {
             {/* Content */}
             <div className="lg:col-span-2 space-y-8">
               <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                <h2 className="text-xl font-bold text-slate-900 mb-4">
                   Pourquoi faire appel à un professionnel ?
                 </h2>
                 <ul className="space-y-3">
@@ -156,15 +156,15 @@ export default async function ServicePage({ params }: Props) {
                     "Assurance décennale et RC Pro",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700 text-sm">{item}</span>
+                      <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                <h2 className="text-xl font-bold text-slate-900 mb-4">
                   Comment ça fonctionne ?
                 </h2>
                 <div className="space-y-4">
@@ -190,10 +190,10 @@ export default async function ServicePage({ params }: Props) {
                         {item.step}
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-900 text-sm">
+                        <div className="font-semibold text-slate-900 text-sm">
                           {item.title}
                         </div>
-                        <div className="text-sm text-gray-500">{item.desc}</div>
+                        <div className="text-sm text-slate-500">{item.desc}</div>
                       </div>
                     </div>
                   ))}
@@ -210,26 +210,26 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       {/* FAQ */}
-      <section className="bg-gray-50 py-12 sm:py-16 border-t">
+      <section className="bg-slate-50 py-12 sm:py-16 border-t">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-2 text-center">
+          <h2 className="text-xl font-bold text-slate-900 mb-2 text-center">
             Questions fréquentes : {service.name.toLowerCase()}
           </h2>
-          <p className="text-sm text-gray-500 text-center mb-8">
+          <p className="text-sm text-slate-500 text-center mb-8">
             Tout savoir avant de demander un devis
           </p>
           <div className="space-y-3">
             {faqItems.map((faq, index) => (
               <details
                 key={index}
-                className="group bg-white rounded-xl border border-gray-100 overflow-hidden"
+                className="group bg-white rounded-xl border border-slate-100 overflow-hidden"
                 {...(index === 0 ? { open: true } : {})}
               >
-                <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-gray-900 text-sm hover:text-indigo-700 transition-colors">
+                <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-slate-900 text-sm hover:text-indigo-700 transition-colors">
                   <span className="pr-4">{faq.question}</span>
-                  <ArrowRight className="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-90" />
+                  <ArrowRight className="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform group-open:rotate-90" />
                 </summary>
-                <div className="px-4 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-50 pt-3">
+                <div className="px-4 pb-4 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3">
                   {faq.answer}
                 </div>
               </details>
@@ -241,10 +241,10 @@ export default async function ServicePage({ params }: Props) {
       {/* Cities for this service */}
       <section className="py-12 sm:py-16 border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-2">
+          <h2 className="text-xl font-bold text-slate-900 mb-2">
             {service.name} par ville
           </h2>
-          <p className="text-sm text-gray-500 mb-6">
+          <p className="text-sm text-slate-500 mb-6">
             Trouvez un artisan pour {service.name.toLowerCase()} dans votre ville
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -252,13 +252,13 @@ export default async function ServicePage({ params }: Props) {
               <Link
                 key={city.slug}
                 href={`/services/${slug}/${city.slug}`}
-                className="p-3 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/30 transition-all text-center card-hover"
+                className="p-3 rounded-xl border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/30 transition-all text-center card-hover"
               >
                 <div className="flex items-center justify-center gap-1 mb-1">
                   <MapPin className="w-3 h-3 text-indigo-500" />
-                  <span className="text-sm font-medium text-gray-900 truncate">{city.name}</span>
+                  <span className="text-sm font-medium text-slate-900 truncate">{city.name}</span>
                 </div>
-                <span className="text-xs text-gray-400">{city.departmentCode}</span>
+                <span className="text-xs text-slate-400">{city.departmentCode}</span>
               </Link>
             ))}
           </div>
@@ -277,7 +277,7 @@ export default async function ServicePage({ params }: Props) {
       {/* Other services */}
       <section className="bg-white py-12 sm:py-16 border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <h2 className="text-xl font-bold text-slate-900 mb-6">
             Autres services
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -291,8 +291,8 @@ export default async function ServicePage({ params }: Props) {
                   <ServiceIcon name={s.icon} className="w-5 h-5 text-indigo-600" />
                 </div>
                 <div>
-                  <span className="text-sm font-medium text-gray-900 block">{s.name}</span>
-                  <span className="text-xs text-gray-400">{s.priceRange}</span>
+                  <span className="text-sm font-medium text-slate-900 block">{s.name}</span>
+                  <span className="text-xs text-slate-400">{s.priceRange}</span>
                 </div>
               </Link>
             ))}

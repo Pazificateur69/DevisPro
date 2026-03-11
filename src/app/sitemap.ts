@@ -52,6 +52,8 @@ export default function sitemap({
       { url: `${BASE_URL}/plombier-urgence`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
       { url: `${BASE_URL}/reparation-volets`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
       { url: `${BASE_URL}/devis-renovation`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+      { url: `${BASE_URL}/artisans`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+      { url: `${BASE_URL}/aide`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
       { url: `${BASE_URL}/plan-du-site`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
       { url: `${BASE_URL}/mentions-legales`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
       { url: `${BASE_URL}/cgu`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },

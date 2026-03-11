@@ -243,10 +243,10 @@ export default async function CityPage({ params }: Props) {
       <section className="py-14 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
               Tous nos services à {city.name}
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">
+            <p className="text-slate-500 max-w-2xl mx-auto">
               {services.length} prestations disponibles avec des artisans
               locaux vérifiés dans le {city.department} ({city.departmentCode})
             </p>
@@ -256,7 +256,7 @@ export default async function CityPage({ params }: Props) {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}/${city.slug}`}
-                className="group flex flex-col p-6 rounded-2xl border border-gray-100 bg-white hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-500/5 transition-all card-hover"
+                className="group flex flex-col p-6 rounded-2xl border border-slate-100 bg-white hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-500/5 transition-all card-hover"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-100 transition-colors">
@@ -266,18 +266,18 @@ export default async function CityPage({ params }: Props) {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-gray-900 mb-1 group-hover:text-indigo-700 transition-colors">
+                    <h3 className="font-bold text-slate-900 mb-1 group-hover:text-indigo-700 transition-colors">
                       {service.name}
                     </h3>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-slate-400">
                       à {city.name} ({city.departmentCode})
                     </p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
+                <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
                   {service.shortDescription}
                 </p>
-                <div className="flex items-center justify-between pt-3 border-t border-gray-50">
+                <div className="flex items-center justify-between pt-3 border-t border-slate-50">
                   <span className="text-sm font-bold text-indigo-600">
                     {service.priceRange}
                   </span>
@@ -293,14 +293,14 @@ export default async function CityPage({ params }: Props) {
       </section>
 
       {/* Formulaire devis */}
-      <section className="bg-gray-50 py-14 sm:py-20 border-t" id="formulaire">
+      <section className="bg-slate-50 py-14 sm:py-20 border-t" id="formulaire">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
             <div className="lg:col-span-2 space-y-6">
-              <h2 className="text-2xl font-extrabold text-gray-900">
+              <h2 className="text-2xl font-extrabold text-slate-900">
                 Demandez vos devis gratuits à {city.name}
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 Remplissez le formulaire ci-contre pour recevoir jusqu&apos;à 3
                 devis d&apos;artisans qualifiés à {city.name} et dans le{" "}
                 {city.department}. Service 100% gratuit et sans engagement.
@@ -328,10 +328,10 @@ export default async function CityPage({ params }: Props) {
                       {item.step}
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900">
+                      <div className="font-bold text-slate-900">
                         {item.title}
                       </div>
-                      <div className="text-sm text-gray-500">{item.desc}</div>
+                      <div className="text-sm text-slate-500">{item.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -347,10 +347,10 @@ export default async function CityPage({ params }: Props) {
       {/* Pourquoi choisir Renov Habitation */}
       <section className="py-14 sm:py-20 border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-3 text-center">
+          <h2 className="text-2xl font-extrabold text-slate-900 mb-3 text-center">
             Pourquoi choisir Renov Habitation à {city.name} ?
           </h2>
-          <p className="text-gray-500 text-center mb-10 max-w-2xl mx-auto">
+          <p className="text-slate-500 text-center mb-10 max-w-2xl mx-auto">
             Nous facilitons la mise en relation entre particuliers et artisans
             qualifiés dans le {city.department}
           </p>
@@ -379,13 +379,13 @@ export default async function CityPage({ params }: Props) {
             ].map((item) => (
               <div
                 key={item.title}
-                className="p-6 rounded-2xl border border-gray-100 bg-white"
+                className="p-6 rounded-2xl border border-slate-100 bg-white"
               >
                 <div className="w-11 h-11 bg-indigo-50 rounded-xl flex items-center justify-center mb-4">
                   <item.icon className="w-5 h-5 text-indigo-600" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -395,26 +395,26 @@ export default async function CityPage({ params }: Props) {
       </section>
 
       {/* FAQ */}
-      <section className="bg-gray-50 py-14 sm:py-20 border-t">
+      <section className="bg-slate-50 py-14 sm:py-20 border-t">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-3 text-center">
+          <h2 className="text-2xl font-extrabold text-slate-900 mb-3 text-center">
             Questions fréquentes - Artisan à {city.name}
           </h2>
-          <p className="text-gray-500 text-center mb-10">
+          <p className="text-slate-500 text-center mb-10">
             Tout ce que vous devez savoir sur nos services à {city.name} ({city.departmentCode})
           </p>
           <div className="space-y-4">
             {faqItems.map((faq, index) => (
               <details
                 key={index}
-                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden"
+                className="group bg-white rounded-2xl border border-slate-100 overflow-hidden"
                 {...(index === 0 ? { open: true } : {})}
               >
-                <summary className="flex items-center justify-between p-5 cursor-pointer font-bold text-gray-900 hover:text-indigo-700 transition-colors">
+                <summary className="flex items-center justify-between p-5 cursor-pointer font-bold text-slate-900 hover:text-indigo-700 transition-colors">
                   <span className="pr-4">{faq.question}</span>
-                  <ArrowRight className="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-90" />
+                  <ArrowRight className="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform group-open:rotate-90" />
                 </summary>
-                <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50 pt-4">
+                <div className="px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-4">
                   {faq.answer}
                 </div>
               </details>
@@ -428,13 +428,13 @@ export default async function CityPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div>
-              <h2 className="text-2xl font-extrabold text-gray-900 mb-4">
+              <h2 className="text-2xl font-extrabold text-slate-900 mb-4">
                 Artisans à {city.name} : votre contexte local
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <p className="text-slate-600 leading-relaxed mb-4">
                 {city.name} est {citySize === "metropole" ? "une métropole majeure" : citySize === "grande_ville" ? "une grande ville" : citySize === "ville_moyenne" ? "une ville dynamique" : "une commune"} du {city.department} ({city.departmentCode}), en région {city.region}, avec {city.population.toLocaleString("fr-FR")} habitants. Le patrimoine immobilier local est caractérisé par {regionContext.architecture}, dans un {regionContext.climate}.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Les besoins spécifiques des habitants de {city.name} en matière de travaux incluent : {regionContext.specificNeeds}. Nos {services.length} services couvrent l&apos;ensemble de ces besoins avec des artisans locaux qualifiés.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -455,7 +455,7 @@ export default async function CityPage({ params }: Props) {
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
+              <h3 className="text-lg font-bold text-slate-900 mb-4">
                 Top services demandés à {city.name}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -463,10 +463,10 @@ export default async function CityPage({ params }: Props) {
                   <Link
                     key={s.slug}
                     href={`/services/${s.slug}/${city.slug}`}
-                    className="flex items-center gap-2 p-3 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/30 transition-all text-sm"
+                    className="flex items-center gap-2 p-3 rounded-xl border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/30 transition-all text-sm"
                   >
                     <ServiceIcon name={s.icon} className="w-4 h-4 text-indigo-500" />
-                    <span className="text-gray-700 font-medium truncate">{s.name}</span>
+                    <span className="text-slate-700 font-medium truncate">{s.name}</span>
                   </Link>
                 ))}
               </div>
@@ -477,12 +477,12 @@ export default async function CityPage({ params }: Props) {
 
       {/* Villes proches - expanded */}
       {nearbyCities.length > 0 && (
-        <section className="bg-gray-50 py-14 sm:py-20 border-t">
+        <section className="bg-slate-50 py-14 sm:py-20 border-t">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 className="text-2xl font-extrabold text-slate-900 mb-3">
               Artisans dans les villes proches de {city.name}
             </h2>
-            <p className="text-gray-500 mb-8">
+            <p className="text-slate-500 mb-8">
               Nous intervenons également dans ces villes du {city.department} et
               de la région {city.region}
             </p>
@@ -491,13 +491,13 @@ export default async function CityPage({ params }: Props) {
                 <Link
                   key={c.slug}
                   href={`/villes/${c.slug}`}
-                  className="flex flex-col items-center p-4 rounded-2xl border border-gray-100 bg-white hover:border-indigo-200 hover:bg-indigo-50/30 transition-all card-hover text-center"
+                  className="flex flex-col items-center p-4 rounded-2xl border border-slate-100 bg-white hover:border-indigo-200 hover:bg-indigo-50/30 transition-all card-hover text-center"
                 >
                   <MapPin className="w-4 h-4 text-indigo-400 mb-1.5" />
-                  <span className="text-sm font-bold text-gray-900 mb-0.5">
+                  <span className="text-sm font-bold text-slate-900 mb-0.5">
                     {c.name}
                   </span>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-slate-400">
                     {c.departmentCode}
                   </span>
                 </Link>
@@ -520,7 +520,7 @@ export default async function CityPage({ params }: Props) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="#formulaire"
-              className="btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg"
+              className="btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-xl font-bold hover:bg-indigo-50 transition-colors shadow-lg"
             >
               Demander mes devis gratuits
               <ArrowRight className="w-5 h-5" />

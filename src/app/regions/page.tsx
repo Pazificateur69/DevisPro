@@ -83,12 +83,12 @@ export default function RegionsPage() {
         </section>
 
         <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-10 z-20">
-          <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 p-8 sm:p-12">
+          <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8 sm:p-12">
             <div className="mb-10">
-              <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
+              <h2 className="text-2xl font-extrabold text-slate-900 mb-2">
                 Toutes les régions
               </h2>
-              <p className="text-gray-500 font-medium">
+              <p className="text-slate-500 font-medium">
                 Cliquez sur une région pour découvrir les artisans et services
                 disponibles
               </p>
@@ -101,16 +101,16 @@ export default function RegionsPage() {
                   <Link
                     key={region.slug}
                     href={`/regions/${region.slug}`}
-                    className="group flex flex-col p-6 rounded-2xl border border-gray-100 bg-[#fafafa] hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all card-hover"
+                    className="group flex flex-col p-6 rounded-2xl border border-slate-100 bg-[#fafafa] hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all card-hover"
                   >
-                    <h3 className="text-lg font-extrabold text-gray-900 mb-2 group-hover:text-indigo-700 transition-colors">
+                    <h3 className="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-indigo-700 transition-colors">
                       {region.name}
                     </h3>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1 line-clamp-2">
+                    <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1 line-clamp-2">
                       {region.description}
                     </p>
-                    <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                      <div className="flex items-center gap-3 text-xs text-gray-400">
+                    <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+                      <div className="flex items-center gap-3 text-xs text-slate-400">
                         <span className="flex items-center gap-1">
                           <Building2 className="w-3.5 h-3.5" />
                           {region.departments.length} dép.
@@ -142,7 +142,7 @@ export default function RegionsPage() {
             </p>
             <Link
               href="/devis"
-              className="btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg"
+              className="btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-xl font-bold hover:bg-indigo-50 transition-colors shadow-lg"
             >
               Demander un devis gratuit
               <ArrowRight className="w-5 h-5" />

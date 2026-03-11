@@ -71,9 +71,9 @@ export default async function GuidePage({ params }: Props) {
       )}
 
       {/* Breadcrumb + hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-10 sm:py-14">
+      <section className="bg-gradient-to-br from-indigo-600 to-indigo-800 text-white py-10 sm:py-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="text-sm text-blue-200 mb-4 flex items-center gap-2 flex-wrap">
+          <nav className="text-sm text-indigo-200 mb-4 flex items-center gap-2 flex-wrap">
             <Link href="/" className="hover:text-white">Accueil</Link>
             <span>/</span>
             {service && (
@@ -99,23 +99,23 @@ export default async function GuidePage({ params }: Props) {
             {/* Main content */}
             <article className="lg:col-span-2">
               {/* Table of contents */}
-              <div className="bg-blue-50 rounded-xl p-5 mb-8 border border-blue-100">
-                <h2 className="font-bold text-gray-900 mb-3 text-sm">
+              <div className="bg-indigo-50 rounded-xl p-5 mb-8 border border-indigo-100">
+                <h2 className="font-bold text-slate-900 mb-3 text-sm">
                   Sommaire
                 </h2>
                 <ul className="space-y-1.5 text-sm">
                   <li>
-                    <a href="#contenu" className="text-blue-600 hover:underline">
+                    <a href="#contenu" className="text-indigo-600 hover:underline">
                       Guide complet
                     </a>
                   </li>
                   <li>
-                    <a href="#faq" className="text-blue-600 hover:underline">
+                    <a href="#faq" className="text-indigo-600 hover:underline">
                       Questions frequentes
                     </a>
                   </li>
                   <li>
-                    <a href="#devis" className="text-blue-600 hover:underline">
+                    <a href="#devis" className="text-indigo-600 hover:underline">
                       Demander un devis gratuit
                     </a>
                   </li>
@@ -123,11 +123,11 @@ export default async function GuidePage({ params }: Props) {
               </div>
 
               {/* Article content */}
-              <div id="contenu" className="prose prose-gray max-w-none">
+              <div id="contenu" className="prose prose-slate max-w-none">
                 {paragraphs.map((paragraph, index) => (
                   <p
                     key={index}
-                    className="text-gray-700 leading-relaxed mb-4"
+                    className="text-slate-700 leading-relaxed mb-4"
                   >
                     {paragraph}
                   </p>
@@ -135,17 +135,17 @@ export default async function GuidePage({ params }: Props) {
               </div>
 
               {/* CTA mid-article */}
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
-                <h3 className="font-bold text-gray-900 mb-2">
+              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-6 my-8">
+                <h3 className="font-bold text-slate-900 mb-2">
                   Besoin d&apos;un professionnel ?
                 </h3>
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-slate-600 text-sm mb-4">
                   Recevez jusqu&apos;a 3 devis gratuits d&apos;artisans qualifies pres de
                   chez vous.
                 </p>
                 <Link
                   href="/devis"
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-indigo-700 transition-colors"
                 >
                   Demander un devis gratuit
                   <ArrowRight className="w-4 h-4" />
@@ -154,7 +154,7 @@ export default async function GuidePage({ params }: Props) {
 
               {/* FAQ */}
               <div id="faq" className="mt-10">
-                <h2 className="text-xl font-bold text-gray-900 mb-6">
+                <h2 className="text-xl font-bold text-slate-900 mb-6">
                   Questions frequentes
                 </h2>
                 <div className="space-y-4">
@@ -164,13 +164,13 @@ export default async function GuidePage({ params }: Props) {
                       className="bg-white border rounded-xl p-5 group"
                       open={index === 0}
                     >
-                      <summary className="font-semibold text-gray-900 cursor-pointer list-none flex items-center justify-between">
+                      <summary className="font-semibold text-slate-900 cursor-pointer list-none flex items-center justify-between">
                         {item.question}
-                        <span className="text-blue-600 text-xl ml-4 group-open:rotate-45 transition-transform">
+                        <span className="text-indigo-600 text-xl ml-4 group-open:rotate-45 transition-transform">
                           +
                         </span>
                       </summary>
-                      <p className="text-gray-600 text-sm mt-3 leading-relaxed">
+                      <p className="text-slate-600 text-sm mt-3 leading-relaxed">
                         {item.answer}
                       </p>
                     </details>
@@ -181,7 +181,7 @@ export default async function GuidePage({ params }: Props) {
               {/* Related articles */}
               {relatedPages.length > 0 && (
                 <div className="mt-10">
-                  <h2 className="text-xl font-bold text-gray-900 mb-4">
+                  <h2 className="text-xl font-bold text-slate-900 mb-4">
                     Articles associes
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -189,12 +189,12 @@ export default async function GuidePage({ params }: Props) {
                       <Link
                         key={p.slug}
                         href={`/guide/${p.slug}`}
-                        className="p-4 border rounded-xl hover:border-blue-300 hover:bg-blue-50/50 transition-all"
+                        className="p-4 border rounded-xl hover:border-indigo-300 hover:bg-indigo-50/50 transition-all"
                       >
-                        <h3 className="font-medium text-sm text-gray-900 mb-1">
+                        <h3 className="font-medium text-sm text-slate-900 mb-1">
                           {p.h1}
                         </h3>
-                        <span className="text-xs text-blue-600">
+                        <span className="text-xs text-indigo-600">
                           Lire le guide &rarr;
                         </span>
                       </Link>
@@ -208,24 +208,24 @@ export default async function GuidePage({ params }: Props) {
             <aside className="space-y-6">
               {/* Devis form CTA */}
               <div id="devis" className="bg-white rounded-xl border p-5 sticky top-20">
-                <h3 className="font-bold text-gray-900 mb-2 text-center">
+                <h3 className="font-bold text-slate-900 mb-2 text-center">
                   Devis gratuit
                 </h3>
-                <p className="text-sm text-gray-500 text-center mb-4">
+                <p className="text-sm text-slate-500 text-center mb-4">
                   Recevez 3 devis en 24h
                 </p>
                 <Link
                   href={`/devis`}
-                  className="block w-full bg-blue-600 text-white text-center py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+                  className="block w-full bg-indigo-600 text-white text-center py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors"
                 >
                   Demander mes devis
                 </Link>
 
-                <div className="mt-4 space-y-2 text-xs text-gray-500">
+                <div className="mt-4 space-y-2 text-xs text-slate-500">
                   {["100% gratuit", "Sans engagement", "Artisans verifies"].map(
                     (item) => (
                       <div key={item} className="flex items-center gap-2">
-                        <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                        <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
                         <span>{item}</span>
                       </div>
                     )
@@ -235,7 +235,7 @@ export default async function GuidePage({ params }: Props) {
 
               {/* Service pages */}
               <div className="bg-white rounded-xl border p-5">
-                <h3 className="font-bold text-gray-900 mb-3 text-sm">
+                <h3 className="font-bold text-slate-900 mb-3 text-sm">
                   Nos services
                 </h3>
                 <div className="space-y-2">
@@ -243,13 +243,13 @@ export default async function GuidePage({ params }: Props) {
                     <Link
                       key={s.slug}
                       href={`/services/${s.slug}`}
-                      className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-50 transition-colors"
                     >
                       <ServiceIcon
                         name={s.icon}
-                        className="w-4 h-4 text-blue-600"
+                        className="w-4 h-4 text-indigo-600"
                       />
-                      <span className="text-sm text-gray-700">{s.name}</span>
+                      <span className="text-sm text-slate-700">{s.name}</span>
                     </Link>
                   ))}
                 </div>
@@ -258,7 +258,7 @@ export default async function GuidePage({ params }: Props) {
               {/* City links */}
               {service && (
                 <div className="bg-white rounded-xl border p-5">
-                  <h3 className="font-bold text-gray-900 mb-3 text-sm">
+                  <h3 className="font-bold text-slate-900 mb-3 text-sm">
                     {service.name} par ville
                   </h3>
                   <div className="flex flex-wrap gap-1.5">
@@ -266,7 +266,7 @@ export default async function GuidePage({ params }: Props) {
                       <Link
                         key={city.slug}
                         href={`/services/${service.slug}/${city.slug}`}
-                        className="text-xs bg-gray-100 hover:bg-blue-100 hover:text-blue-700 px-2.5 py-1 rounded-full transition-colors text-gray-600"
+                        className="text-xs bg-slate-100 hover:bg-indigo-100 hover:text-indigo-700 px-2.5 py-1 rounded-full transition-colors text-slate-600"
                       >
                         {city.name}
                       </Link>
@@ -280,17 +280,17 @@ export default async function GuidePage({ params }: Props) {
       </section>
 
       {/* CTA bottom */}
-      <section className="bg-blue-600 text-white py-12">
+      <section className="bg-indigo-600 text-white py-12">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-3">
             Besoin d&apos;un devis ?
           </h2>
-          <p className="text-blue-100 mb-6">
+          <p className="text-indigo-100 mb-6">
             Comparez les prix de 3 artisans qualifies
           </p>
           <Link
             href="/devis"
-            className="inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold hover:bg-blue-50 transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-3.5 rounded-xl font-bold hover:bg-indigo-50 transition-colors"
           >
             Recevoir mes devis gratuits
             <ArrowRight className="w-5 h-5" />

@@ -15,7 +15,9 @@ export const metadata: Metadata = {
   title: "Reparation volets roulants - Devis gratuit",
   description:
     "Volet roulant bloque, lame cassee ou moteur en panne ? Recevez jusqu'a 3 devis gratuits de specialistes pres de chez vous. Service gratuit et sans engagement.",
-  robots: { index: false },
+  alternates: {
+    canonical: "/reparation-volets",
+  },
 };
 
 export default function ReparationVoletsPage() {

@@ -15,7 +15,9 @@ export const metadata: Metadata = {
   title: "Devis renovation - Comparez les artisans",
   description:
     "Obtenez jusqu'a 3 devis gratuits pour vos travaux de renovation. Comparez les artisans qualifies pres de chez vous. Service 100% gratuit et sans engagement.",
-  robots: { index: false },
+  alternates: {
+    canonical: "/devis-renovation",
+  },
 };
 
 export default function DevisRenovationPage() {

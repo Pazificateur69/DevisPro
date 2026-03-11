@@ -184,7 +184,7 @@ export default function FranceMap() {
       )}
 
       {hoveredCity && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 glass-dark bg-gray-900/95 text-white shadow-2xl shadow-indigo-500/20 rounded-2xl px-5 py-3 flex items-center gap-3 pointer-events-none z-10 animate-fade-in-up">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 glass-dark bg-slate-900/95 text-white shadow-2xl shadow-indigo-500/20 rounded-2xl px-5 py-3 flex items-center gap-3 pointer-events-none z-10 animate-fade-in-up">
           <MapPin className="w-4 h-4 text-indigo-400" />
           <span className="font-semibold text-sm">
             {cities.find((c) => c.slug === hoveredCity)?.name}

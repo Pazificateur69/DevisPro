@@ -215,15 +215,15 @@ export default async function CityServicePage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-4 text-sm">
-              <span className="text-gray-600">
-                <strong className="text-gray-900">Prix moyen</strong> à{" "}
+              <span className="text-slate-600">
+                <strong className="text-slate-900">Prix moyen</strong> à{" "}
                 {city.name} :{" "}
                 <span className="text-indigo-600 font-bold">
                   {service.priceRange}
                 </span>
               </span>
-              <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+              <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
                 <span>Artisans vérifiés et qualifiés</span>
               </div>
             </div>
@@ -246,40 +246,40 @@ export default async function CityServicePage({ params }: Props) {
             <div className="lg:col-span-2 space-y-8">
               {/* Introduction personnalisée par ville */}
               <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-3">
+                <h2 className="text-xl font-bold text-slate-900 mb-3">
                   {service.name} à {city.name} : trouvez le bon artisan
                 </h2>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-slate-600 text-sm leading-relaxed mb-4">
                   {seoContent.introText}
                 </p>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
 
               {/* Expertise locale - contexte régional */}
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                <h3 className="text-lg font-bold text-slate-900 mb-3">
                   <span className="flex items-center gap-2">
                     <HomeIcon className="w-5 h-5 text-indigo-600" />
                     Expertise locale à {city.name}
                   </span>
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {seoContent.localExpertiseText}
                 </p>
               </div>
 
               {/* Why choose us - personnalisé */}
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                <h3 className="text-lg font-bold text-slate-900 mb-3">
                   Pourquoi passer par Renov Habitation à {city.name} ?
                 </h3>
                 <ul className="space-y-2.5">
                   {seoContent.whyChooseUsItems.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700 text-sm">{item}</span>
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -287,13 +287,13 @@ export default async function CityServicePage({ params }: Props) {
 
               {/* Pricing context - personnalisé par région */}
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                <h3 className="text-lg font-bold text-slate-900 mb-3">
                   <span className="flex items-center gap-2">
                     <ThermometerSun className="w-5 h-5 text-indigo-600" />
                     Prix {service.name.toLowerCase()} à {city.name}
                   </span>
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                <p className="text-slate-600 text-sm leading-relaxed mb-3">
                   {seoContent.pricingContextText}
                 </p>
                 <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-100">
@@ -311,10 +311,10 @@ export default async function CityServicePage({ params }: Props) {
 
               {/* Zone d'intervention */}
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                <h3 className="text-lg font-bold text-slate-900 mb-3">
                   Zone d&apos;intervention autour de {city.name}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   Nos artisans partenaires interviennent à {city.name} et dans
                   toutes les communes du {city.department} (
                   {city.departmentCode}), région {city.region}. Que vous soyez
@@ -327,7 +327,7 @@ export default async function CityServicePage({ params }: Props) {
                     <Link
                       key={c.slug}
                       href={`/services/${slug}/${c.slug}`}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-gray-100 hover:bg-indigo-50 hover:text-indigo-700 rounded-lg text-xs text-gray-600 transition-colors"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 rounded-lg text-xs text-slate-600 transition-colors"
                     >
                       <MapPin className="w-3 h-3" />
                       {c.name}
@@ -339,7 +339,7 @@ export default async function CityServicePage({ params }: Props) {
               {/* Related guides links for SEO */}
               {relatedGuides.length > 0 && (
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  <h3 className="text-lg font-bold text-slate-900 mb-3">
                     Guides et conseils
                   </h3>
                   <div className="space-y-2">
@@ -347,10 +347,10 @@ export default async function CityServicePage({ params }: Props) {
                       <Link
                         key={guide.slug}
                         href={`/guide/${guide.slug}`}
-                        className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 transition-colors group"
+                        className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg hover:bg-indigo-50 transition-colors group"
                       >
                         <ArrowRight className="w-3.5 h-3.5 text-indigo-500 group-hover:translate-x-0.5 transition-transform" />
-                        <span className="text-sm text-gray-700 group-hover:text-indigo-700">
+                        <span className="text-sm text-slate-700 group-hover:text-indigo-700">
                           {guide.title}
                         </span>
                       </Link>
@@ -369,12 +369,12 @@ export default async function CityServicePage({ params }: Props) {
       </section>
 
       {/* FAQ Section - Ultra personalized with 8+ questions */}
-      <section className="bg-gray-50 py-12 sm:py-16 border-t">
+      <section className="bg-slate-50 py-12 sm:py-16 border-t">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-2 text-center">
+          <h2 className="text-xl font-bold text-slate-900 mb-2 text-center">
             Questions fréquentes : {service.name.toLowerCase()} à {city.name}
           </h2>
-          <p className="text-sm text-gray-500 text-center mb-8">
+          <p className="text-sm text-slate-500 text-center mb-8">
             Tout savoir sur {service.name.toLowerCase()} à {city.name} (
             {city.departmentCode}) - {city.region}
           </p>
@@ -382,14 +382,14 @@ export default async function CityServicePage({ params }: Props) {
             {seoContent.faqItems.map((faq, index) => (
               <details
                 key={index}
-                className="group bg-white rounded-xl border border-gray-100 overflow-hidden"
+                className="group bg-white rounded-xl border border-slate-100 overflow-hidden"
                 {...(index === 0 ? { open: true } : {})}
               >
-                <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-gray-900 text-sm hover:text-indigo-700 transition-colors">
+                <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-slate-900 text-sm hover:text-indigo-700 transition-colors">
                   <span className="pr-4">{faq.question}</span>
-                  <ArrowRight className="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-90" />
+                  <ArrowRight className="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform group-open:rotate-90" />
                 </summary>
-                <div className="px-4 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-50 pt-3">
+                <div className="px-4 pb-4 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3">
                   {faq.answer}
                 </div>
               </details>
@@ -430,7 +430,7 @@ export default async function CityServicePage({ params }: Props) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="#formulaire"
-              className="btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-3.5 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg"
+              className="btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-3.5 rounded-xl font-bold hover:bg-indigo-50 transition-colors shadow-lg"
             >
               Demander mes devis gratuits
               <ArrowRight className="w-5 h-5" />

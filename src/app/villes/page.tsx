@@ -47,7 +47,7 @@ export default function VillesPage() {
         }}
       />
 
-      <div className="min-h-screen bg-[#fafafa]">
+      <div className="min-h-screen bg-subtle">
         {/* Header section with gradient */}
         <section className="hero-gradient text-white py-20 sm:py-28 relative overflow-hidden border-b border-indigo-900/30">
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,_rgba(255,255,255,0.1)_0%,_transparent_60%)]" />
@@ -96,23 +96,23 @@ export default function VillesPage() {
 
         {/* Directory Content */}
         <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-10 z-20">
-          <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 p-8 sm:p-12">
-            <div className="mb-12 border-b border-gray-100 pb-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8 sm:p-12">
+            <div className="mb-12 border-b border-slate-100 pb-8 flex flex-col md:flex-row justify-between items-center gap-6">
               <div>
-                <h2 className="text-2xl font-extrabold text-gray-900">
+                <h2 className="text-2xl font-extrabold text-slate-900">
                   Annuaire par Région
                 </h2>
-                <p className="text-gray-500 font-medium">
+                <p className="text-slate-500 font-medium">
                   Cliquez sur une ville pour voir tous les services disponibles
                 </p>
               </div>
               <div className="relative w-full md:w-72 hidden sm:block">
-                <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   type="text"
                   placeholder="Rechercher une ville..."
                   disabled
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-12 pr-4 text-sm font-medium focus:outline-none cursor-not-allowed text-gray-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-12 pr-4 text-sm font-medium focus:outline-none cursor-not-allowed text-slate-500"
                 />
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function VillesPage() {
                 const regionCities = getCitiesByRegion(region);
                 return (
                   <div key={region} className="group">
-                    <h3 className="text-xl font-extrabold text-gray-900 mb-6 flex items-center gap-3 border-l-4 border-indigo-600 pl-4 py-1">
+                    <h3 className="text-xl font-extrabold text-slate-900 mb-6 flex items-center gap-3 border-l-4 border-indigo-600 pl-4 py-1">
                       {region}
                       <span className="text-xs font-bold bg-indigo-50 text-indigo-600 px-2.5 py-1 rounded-full">
                         {regionCities.length} villes
@@ -133,12 +133,12 @@ export default function VillesPage() {
                         <Link
                           key={city.slug}
                           href={`/villes/${city.slug}`}
-                          className="flex flex-col p-4 rounded-2xl border border-gray-100 bg-[#fafafa] hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all card-hover"
+                          className="flex flex-col p-4 rounded-2xl border border-slate-100 bg-slate-50/50 hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all card-hover"
                         >
-                          <span className="font-bold text-gray-900 text-[15px] mb-1 truncate">
+                          <span className="font-bold text-slate-900 text-[15px] mb-1 truncate">
                             {city.name}
                           </span>
-                          <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500 mb-2">
+                          <div className="flex items-center gap-1.5 text-xs font-medium text-slate-500 mb-2">
                             <MapPin className="w-3.5 h-3.5 text-indigo-400" />
                             <span>
                               {city.departmentCode} - {city.department}
@@ -170,7 +170,7 @@ export default function VillesPage() {
             </p>
             <Link
               href="/devis"
-              className="btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg"
+              className="btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-xl font-bold hover:bg-indigo-50 transition-colors shadow-lg"
             >
               Demander un devis gratuit
               <ArrowRight className="w-5 h-5" />

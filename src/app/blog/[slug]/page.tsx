@@ -7,7 +7,14 @@ import { getLongTailByService } from "@/lib/longtail";
 import { cities } from "@/lib/cities";
 import JsonLd, { getFAQJsonLd } from "@/components/JsonLd";
 import ServiceIcon from "@/components/ServiceIcon";
-import { ArrowRight, Calendar, CheckCircle, Tag } from "lucide-react";
+import {
+  ArrowRight,
+  Calendar,
+  CheckCircle,
+  Tag,
+  ChevronDown,
+  BookOpen,
+} from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -48,9 +55,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const service = getServiceBySlug(post.serviceSlug);
   const relatedGuides = getLongTailByService(post.serviceSlug).slice(0, 3);
-  const relatedPosts = blogPosts
-    .filter((p) => p.slug !== slug)
-    .slice(0, 3);
+  const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
   const topCities = cities.slice(0, 8);
   const paragraphs = post.content.split("\n\n").filter((p) => p.trim());
 
@@ -73,21 +78,28 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       {/* Header */}
-      <section className="bg-white border-b py-10 sm:py-14">
+      <section className="bg-white border-b border-slate-100 py-10 sm:py-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="text-sm text-gray-400 mb-4 flex items-center gap-2">
-            <Link href="/" className="hover:text-blue-600">Accueil</Link>
+          <nav className="text-sm text-slate-400 mb-4 flex items-center gap-2">
+            <Link href="/" className="hover:text-indigo-600 transition-colors">
+              Accueil
+            </Link>
             <span>/</span>
-            <Link href="/blog" className="hover:text-blue-600">Blog</Link>
+            <Link
+              href="/blog"
+              className="hover:text-indigo-600 transition-colors"
+            >
+              Blog
+            </Link>
             <span>/</span>
-            <span className="text-gray-600">{post.category}</span>
+            <span className="text-slate-600">{post.category}</span>
           </nav>
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full font-medium flex items-center gap-1">
+            <span className="text-xs bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-full font-semibold flex items-center gap-1">
               <Tag className="w-3 h-3" />
               {post.category}
             </span>
-            <span className="text-xs text-gray-400 flex items-center gap-1">
+            <span className="text-xs text-slate-400 flex items-center gap-1">
               <Calendar className="w-3 h-3" />
               {new Date(post.publishedAt).toLocaleDateString("fr-FR", {
                 day: "numeric",
@@ -96,7 +108,7 @@ export default async function BlogPostPage({ params }: Props) {
               })}
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
             {post.title}
           </h1>
         </div>
@@ -109,32 +121,42 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Article */}
             <article className="lg:col-span-2">
               {/* Table of contents */}
-              <div className="bg-gray-50 rounded-xl p-5 mb-8 border">
-                <h2 className="font-bold text-gray-900 mb-3 text-sm">
+              <div className="bg-slate-50 rounded-2xl p-5 mb-8 border border-slate-100">
+                <h2 className="font-bold text-slate-900 mb-3 text-sm flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-indigo-500" />
                   Sommaire
                 </h2>
                 <ul className="space-y-1.5 text-sm">
                   <li>
-                    <a href="#article" className="text-blue-600 hover:underline">
+                    <a
+                      href="#article"
+                      className="text-indigo-600 hover:underline"
+                    >
                       Article complet
                     </a>
                   </li>
                   <li>
-                    <a href="#faq" className="text-blue-600 hover:underline">
+                    <a href="#faq" className="text-indigo-600 hover:underline">
                       Questions frequentes
                     </a>
                   </li>
                   <li>
-                    <a href="#devis" className="text-blue-600 hover:underline">
+                    <a
+                      href="#devis"
+                      className="text-indigo-600 hover:underline"
+                    >
                       Obtenir un devis
                     </a>
                   </li>
                 </ul>
               </div>
 
-              <div id="article" className="prose prose-gray max-w-none">
+              <div id="article" className="prose prose-slate max-w-none">
                 {paragraphs.map((paragraph, index) => (
-                  <p key={index} className="text-gray-700 leading-relaxed mb-4">
+                  <p
+                    key={index}
+                    className="text-slate-700 leading-relaxed mb-4"
+                  >
                     {paragraph}
                   </p>
                 ))}
@@ -142,9 +164,17 @@ export default async function BlogPostPage({ params }: Props) {
 
               {/* Internal link CTA */}
               <div className="mt-8 p-6 bg-indigo-50 rounded-2xl border border-indigo-100">
-                <p className="text-sm font-semibold text-slate-900 mb-2">Besoin d&apos;un artisan ?</p>
+                <p className="text-sm font-semibold text-slate-900 mb-2">
+                  Besoin d&apos;un artisan ?
+                </p>
                 <p className="text-sm text-slate-600 mb-4">
-                  Recevez jusqu&apos;a 3 devis gratuits pour {post.title.toLowerCase().includes("fuite") ? "une recherche de fuite" : post.title.toLowerCase().includes("volet") ? "vos volets roulants" : "vos travaux"}.
+                  Recevez jusqu&apos;a 3 devis gratuits pour{" "}
+                  {post.title.toLowerCase().includes("fuite")
+                    ? "une recherche de fuite"
+                    : post.title.toLowerCase().includes("volet")
+                      ? "vos volets roulants"
+                      : "vos travaux"}
+                  .
                 </p>
                 <Link
                   href={`/services/${post.serviceSlug}`}
@@ -155,45 +185,29 @@ export default async function BlogPostPage({ params }: Props) {
                 </Link>
               </div>
 
-              {/* CTA */}
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
-                <h3 className="font-bold text-gray-900 mb-2">
-                  Comparez les prix maintenant
-                </h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Recevez jusqu&apos;a 3 devis gratuits d&apos;artisans verifies pres de
-                  chez vous.
-                </p>
-                <Link
-                  href="/devis"
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition-colors"
-                >
-                  Demander un devis gratuit
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-
               {/* FAQ */}
               <div id="faq" className="mt-10">
-                <h2 className="text-xl font-bold text-gray-900 mb-6">
+                <h2 className="text-xl font-extrabold text-slate-900 mb-6 tracking-tight">
                   Questions frequentes
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {post.faq.map((item, index) => (
                     <details
                       key={index}
-                      className="bg-white border rounded-xl p-5 group"
+                      className="bg-white border border-slate-100 rounded-2xl p-5 group card-hover"
                       open={index === 0}
                     >
-                      <summary className="font-semibold text-gray-900 cursor-pointer list-none flex items-center justify-between">
+                      <summary className="font-semibold text-slate-900 cursor-pointer list-none flex items-center justify-between text-[15px]">
                         {item.question}
-                        <span className="text-blue-600 text-xl ml-4 group-open:rotate-45 transition-transform">
-                          +
+                        <span className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 ml-4 group-open:rotate-180 transition-transform">
+                          <ChevronDown className="w-4 h-4" />
                         </span>
                       </summary>
-                      <p className="text-gray-600 text-sm mt-3 leading-relaxed">
-                        {item.answer}
-                      </p>
+                      <div className="border-t border-slate-100 mt-3 pt-3">
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          {item.answer}
+                        </p>
+                      </div>
                     </details>
                   ))}
                 </div>
@@ -201,7 +215,7 @@ export default async function BlogPostPage({ params }: Props) {
 
               {/* Related posts */}
               <div className="mt-10">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                <h2 className="text-xl font-extrabold text-slate-900 mb-4 tracking-tight">
                   Articles similaires
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -209,12 +223,12 @@ export default async function BlogPostPage({ params }: Props) {
                     <Link
                       key={p.slug}
                       href={`/blog/${p.slug}`}
-                      className="p-4 border rounded-xl hover:border-blue-300 hover:bg-blue-50/50 transition-all"
+                      className="p-4 border border-slate-100 rounded-2xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all card-hover"
                     >
-                      <span className="text-xs text-blue-600 font-medium">
+                      <span className="text-xs text-indigo-600 font-semibold">
                         {p.category}
                       </span>
-                      <h3 className="font-medium text-sm text-gray-900 mt-1 line-clamp-2">
+                      <h3 className="font-semibold text-sm text-slate-900 mt-1 line-clamp-2">
                         {p.title}
                       </h3>
                     </Link>
@@ -225,24 +239,27 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Sidebar */}
             <aside className="space-y-6">
-              <div id="devis" className="bg-white rounded-xl border p-5 sticky top-20">
-                <h3 className="font-bold text-gray-900 mb-2 text-center">
+              <div
+                id="devis"
+                className="bg-white rounded-2xl border border-slate-100 p-5 sticky top-20 shadow-lg shadow-slate-200/40"
+              >
+                <h3 className="font-bold text-slate-900 mb-2 text-center">
                   Devis gratuit
                 </h3>
-                <p className="text-sm text-gray-500 text-center mb-4">
+                <p className="text-sm text-slate-500 text-center mb-4">
                   Comparez 3 devis en 24h
                 </p>
                 <Link
                   href="/devis"
-                  className="block w-full bg-blue-600 text-white text-center py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+                  className="block w-full btn-accent text-center py-3 font-semibold text-sm"
                 >
                   Demander mes devis
                 </Link>
-                <div className="mt-4 space-y-2 text-xs text-gray-500">
+                <div className="mt-4 space-y-2 text-xs text-slate-500">
                   {["100% gratuit", "Sans engagement", "Artisans verifies"].map(
                     (item) => (
                       <div key={item} className="flex items-center gap-2">
-                        <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                        <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
                         <span>{item}</span>
                       </div>
                     )
@@ -252,8 +269,8 @@ export default async function BlogPostPage({ params }: Props) {
 
               {/* Related guides */}
               {relatedGuides.length > 0 && (
-                <div className="bg-white rounded-xl border p-5">
-                  <h3 className="font-bold text-gray-900 mb-3 text-sm">
+                <div className="bg-white rounded-2xl border border-slate-100 p-5">
+                  <h3 className="font-bold text-slate-900 mb-3 text-sm">
                     Guides detailles
                   </h3>
                   <div className="space-y-2">
@@ -261,7 +278,7 @@ export default async function BlogPostPage({ params }: Props) {
                       <Link
                         key={g.slug}
                         href={`/guide/${g.slug}`}
-                        className="block p-2 rounded-lg hover:bg-gray-50 text-sm text-gray-700 transition-colors"
+                        className="block p-2 rounded-lg hover:bg-slate-50 text-sm text-slate-700 transition-colors"
                       >
                         {g.h1}
                       </Link>
@@ -271,8 +288,8 @@ export default async function BlogPostPage({ params }: Props) {
               )}
 
               {/* Services */}
-              <div className="bg-white rounded-xl border p-5">
-                <h3 className="font-bold text-gray-900 mb-3 text-sm">
+              <div className="bg-white rounded-2xl border border-slate-100 p-5">
+                <h3 className="font-bold text-slate-900 mb-3 text-sm">
                   Nos services
                 </h3>
                 <div className="space-y-2">
@@ -280,10 +297,13 @@ export default async function BlogPostPage({ params }: Props) {
                     <Link
                       key={s.slug}
                       href={`/services/${s.slug}`}
-                      className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-50 transition-colors"
                     >
-                      <ServiceIcon name={s.icon} className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm text-gray-700">{s.name}</span>
+                      <ServiceIcon
+                        name={s.icon}
+                        className="w-4 h-4 text-indigo-600"
+                      />
+                      <span className="text-sm text-slate-700">{s.name}</span>
                     </Link>
                   ))}
                 </div>
@@ -291,8 +311,8 @@ export default async function BlogPostPage({ params }: Props) {
 
               {/* City links */}
               {service && (
-                <div className="bg-white rounded-xl border p-5">
-                  <h3 className="font-bold text-gray-900 mb-3 text-sm">
+                <div className="bg-white rounded-2xl border border-slate-100 p-5">
+                  <h3 className="font-bold text-slate-900 mb-3 text-sm">
                     {service.name} par ville
                   </h3>
                   <div className="flex flex-wrap gap-1.5">
@@ -300,7 +320,7 @@ export default async function BlogPostPage({ params }: Props) {
                       <Link
                         key={city.slug}
                         href={`/services/${service.slug}/${city.slug}`}
-                        className="text-xs bg-gray-100 hover:bg-blue-100 hover:text-blue-700 px-2.5 py-1 rounded-full transition-colors text-gray-600"
+                        className="text-xs bg-slate-50 hover:bg-indigo-50 hover:text-indigo-700 px-2.5 py-1 rounded-full transition-colors text-slate-600 border border-slate-100"
                       >
                         {city.name}
                       </Link>

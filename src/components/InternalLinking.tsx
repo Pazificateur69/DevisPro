@@ -104,14 +104,14 @@ export function ServiceCityInternalLinks({
     relatedGlossary.length > 0;
 
   return (
-    <section className="py-12 sm:py-16 bg-gray-50 border-t border-gray-100">
+    <section className="py-12 sm:py-16 bg-slate-50 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section heading */}
         <div className="mb-10">
-          <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight mb-2">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-2">
             En savoir plus{cityName ? ` sur nos services${currentServiceSlug ? "" : ` a ${cityName}`}` : ""}
           </h2>
-          <p className="text-sm text-gray-500 max-w-2xl">
+          <p className="text-sm text-slate-500 max-w-2xl">
             Explorez nos services, guides et ressources pour vos travaux
             {cityName ? ` a ${cityName}` : ""}{department ? ` et dans le ${department}` : ""}.
           </p>
@@ -124,16 +124,16 @@ export function ServiceCityInternalLinks({
           <div className="lg:col-span-2 space-y-8">
             {/* Nearby cities for same service */}
             {currentServiceSlug && displayedNearbyCities.length > 0 && (
-              <div className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-2xl border border-slate-100 p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-2.5 mb-4">
                   <div className="w-9 h-9 bg-indigo-50 rounded-xl flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-indigo-600" />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-gray-900">
+                    <h3 className="text-base font-bold text-slate-900">
                       {services.find((s) => s.slug === currentServiceSlug)?.name ?? "Ce service"} dans les villes proches
                     </h3>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-slate-400">
                       {department ? `${department} (${departmentCode})` : ""}{region ? ` - ${region}` : ""}
                     </p>
                   </div>
@@ -143,20 +143,20 @@ export function ServiceCityInternalLinks({
                     <Link
                       key={city.slug}
                       href={`/services/${currentServiceSlug}/${city.slug}`}
-                      className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/40 transition-all text-sm group"
+                      className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/40 transition-all text-sm group"
                     >
                       <MapPin className="w-3 h-3 text-indigo-400 flex-shrink-0" />
-                      <span className="text-gray-700 group-hover:text-indigo-700 font-medium truncate">
+                      <span className="text-slate-700 group-hover:text-indigo-700 font-medium truncate">
                         {city.name}
                       </span>
-                      <span className="text-[11px] text-gray-400 flex-shrink-0">
+                      <span className="text-[11px] text-slate-400 flex-shrink-0">
                         {city.departmentCode}
                       </span>
                     </Link>
                   ))}
                 </div>
                 {nearbyCities.length > 12 && (
-                  <div className="mt-3 pt-3 border-t border-gray-50 text-center">
+                  <div className="mt-3 pt-3 border-t border-slate-50 text-center">
                     <Link
                       href={departmentSlug ? `/departements/${departmentSlug}` : "/villes"}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
@@ -171,16 +171,16 @@ export function ServiceCityInternalLinks({
 
             {/* Other services in this city */}
             {currentCitySlug && otherServices.length > 0 && (
-              <div className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-2xl border border-slate-100 p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-2.5 mb-4">
                   <div className="w-9 h-9 bg-indigo-50 rounded-xl flex items-center justify-center">
                     <Wrench className="w-5 h-5 text-indigo-600" />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-gray-900">
+                    <h3 className="text-base font-bold text-slate-900">
                       Tous nos services{cityName ? ` a ${cityName}` : ""}
                     </h3>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-slate-400">
                       {otherServices.length} services disponibles
                     </p>
                   </div>
@@ -190,17 +190,17 @@ export function ServiceCityInternalLinks({
                     <Link
                       key={service.slug}
                       href={`/services/${service.slug}/${currentCitySlug}`}
-                      className="flex items-center gap-2 px-3 py-2.5 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/40 transition-all group"
+                      className="flex items-center gap-2 px-3 py-2.5 rounded-xl border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/40 transition-all group"
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
-                      <span className="text-sm text-gray-700 group-hover:text-indigo-700 font-medium truncate">
+                      <span className="text-sm text-slate-700 group-hover:text-indigo-700 font-medium truncate">
                         {service.name}
                       </span>
                     </Link>
                   ))}
                 </div>
                 {cityName && (
-                  <div className="mt-3 pt-3 border-t border-gray-50 text-center">
+                  <div className="mt-3 pt-3 border-t border-slate-50 text-center">
                     <Link
                       href={`/villes/${currentCitySlug}`}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
@@ -220,10 +220,10 @@ export function ServiceCityInternalLinks({
           <div className="space-y-6">
             {/* Department & Region links */}
             {(departmentSlug || regionSlug) && (
-              <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-2 mb-4">
                   <Globe className="w-4 h-4 text-indigo-600" />
-                  <h3 className="text-sm font-bold text-gray-900">
+                  <h3 className="text-sm font-bold text-slate-900">
                     Votre territoire
                   </h3>
                 </div>
@@ -231,39 +231,39 @@ export function ServiceCityInternalLinks({
                   {departmentSlug && department && (
                     <Link
                       href={`/departements/${departmentSlug}`}
-                      className="flex items-center justify-between px-3 py-2.5 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/40 transition-all group"
+                      className="flex items-center justify-between px-3 py-2.5 rounded-xl border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/40 transition-all group"
                     >
                       <div className="flex items-center gap-2 min-w-0">
                         <Building2 className="w-4 h-4 text-indigo-400 flex-shrink-0" />
                         <div className="min-w-0">
-                          <span className="text-sm font-medium text-gray-700 group-hover:text-indigo-700 block truncate">
+                          <span className="text-sm font-medium text-slate-700 group-hover:text-indigo-700 block truncate">
                             {department}
                           </span>
-                          <span className="text-[11px] text-gray-400">
+                          <span className="text-[11px] text-slate-400">
                             Departement {departmentCode}
                           </span>
                         </div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-indigo-500 flex-shrink-0 transition-colors" />
+                      <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-indigo-500 flex-shrink-0 transition-colors" />
                     </Link>
                   )}
                   {regionSlug && region && (
                     <Link
                       href={`/regions/${regionSlug}`}
-                      className="flex items-center justify-between px-3 py-2.5 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/40 transition-all group"
+                      className="flex items-center justify-between px-3 py-2.5 rounded-xl border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/40 transition-all group"
                     >
                       <div className="flex items-center gap-2 min-w-0">
                         <Globe className="w-4 h-4 text-indigo-400 flex-shrink-0" />
                         <div className="min-w-0">
-                          <span className="text-sm font-medium text-gray-700 group-hover:text-indigo-700 block truncate">
+                          <span className="text-sm font-medium text-slate-700 group-hover:text-indigo-700 block truncate">
                             {region}
                           </span>
-                          <span className="text-[11px] text-gray-400">
+                          <span className="text-[11px] text-slate-400">
                             Region
                           </span>
                         </div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-indigo-500 flex-shrink-0 transition-colors" />
+                      <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-indigo-500 flex-shrink-0 transition-colors" />
                     </Link>
                   )}
                 </div>
@@ -272,10 +272,10 @@ export function ServiceCityInternalLinks({
 
             {/* Related Guides */}
             {relatedGuides.length > 0 && (
-              <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-2 mb-3">
                   <BookOpen className="w-4 h-4 text-indigo-600" />
-                  <h3 className="text-sm font-bold text-gray-900">
+                  <h3 className="text-sm font-bold text-slate-900">
                     Guides pratiques
                   </h3>
                 </div>
@@ -287,7 +287,7 @@ export function ServiceCityInternalLinks({
                         className="flex items-start gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group"
                       >
                         <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-600 group-hover:text-indigo-700 leading-snug">
+                        <span className="text-sm text-slate-600 group-hover:text-indigo-700 leading-snug">
                           {guide.title}
                         </span>
                       </Link>
@@ -299,10 +299,10 @@ export function ServiceCityInternalLinks({
 
             {/* Related Blog Posts */}
             {relatedBlogPosts.length > 0 && (
-              <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-2 mb-3">
                   <FileText className="w-4 h-4 text-indigo-600" />
-                  <h3 className="text-sm font-bold text-gray-900">
+                  <h3 className="text-sm font-bold text-slate-900">
                     Articles de blog
                   </h3>
                 </div>
@@ -314,14 +314,14 @@ export function ServiceCityInternalLinks({
                         className="flex items-start gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group"
                       >
                         <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-600 group-hover:text-indigo-700 leading-snug">
+                        <span className="text-sm text-slate-600 group-hover:text-indigo-700 leading-snug">
                           {post.title}
                         </span>
                       </Link>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-3 pt-2 border-t border-gray-50">
+                <div className="mt-3 pt-2 border-t border-slate-50">
                   <Link
                     href="/blog"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
@@ -335,10 +335,10 @@ export function ServiceCityInternalLinks({
 
             {/* Related Comparatifs */}
             {relatedComparatifs.length > 0 && (
-              <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-2 mb-3">
                   <Scale className="w-4 h-4 text-indigo-600" />
-                  <h3 className="text-sm font-bold text-gray-900">
+                  <h3 className="text-sm font-bold text-slate-900">
                     Comparatifs
                   </h3>
                 </div>
@@ -350,7 +350,7 @@ export function ServiceCityInternalLinks({
                         className="flex items-start gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group"
                       >
                         <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-600 group-hover:text-indigo-700 leading-snug">
+                        <span className="text-sm text-slate-600 group-hover:text-indigo-700 leading-snug">
                           {comp.title}
                         </span>
                       </Link>
@@ -362,10 +362,10 @@ export function ServiceCityInternalLinks({
 
             {/* Related Glossary Terms */}
             {relatedGlossary.length > 0 && (
-              <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-2 mb-3">
                   <BookMarked className="w-4 h-4 text-indigo-600" />
-                  <h3 className="text-sm font-bold text-gray-900">
+                  <h3 className="text-sm font-bold text-slate-900">
                     Glossaire
                   </h3>
                 </div>
@@ -380,7 +380,7 @@ export function ServiceCityInternalLinks({
                     </Link>
                   ))}
                 </div>
-                <div className="mt-3 pt-2 border-t border-gray-50">
+                <div className="mt-3 pt-2 border-t border-slate-50">
                   <Link
                     href="/glossaire"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
@@ -394,10 +394,10 @@ export function ServiceCityInternalLinks({
 
             {/* Quick navigation breadcrumb-style links */}
             {!hasContentLinks && (
-              <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-2 mb-3">
                   <Layers className="w-4 h-4 text-indigo-600" />
-                  <h3 className="text-sm font-bold text-gray-900">
+                  <h3 className="text-sm font-bold text-slate-900">
                     Navigation rapide
                   </h3>
                 </div>
@@ -405,7 +405,7 @@ export function ServiceCityInternalLinks({
                   <li>
                     <Link
                       href="/services"
-                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-gray-600 group-hover:text-indigo-700"
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-slate-600 group-hover:text-indigo-700"
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
                       Tous nos services
@@ -414,7 +414,7 @@ export function ServiceCityInternalLinks({
                   <li>
                     <Link
                       href="/villes"
-                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-gray-600 group-hover:text-indigo-700"
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-slate-600 group-hover:text-indigo-700"
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
                       Toutes les villes
@@ -423,7 +423,7 @@ export function ServiceCityInternalLinks({
                   <li>
                     <Link
                       href="/regions"
-                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-gray-600 group-hover:text-indigo-700"
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-slate-600 group-hover:text-indigo-700"
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
                       Toutes les regions
@@ -432,7 +432,7 @@ export function ServiceCityInternalLinks({
                   <li>
                     <Link
                       href="/blog"
-                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-gray-600 group-hover:text-indigo-700"
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-slate-600 group-hover:text-indigo-700"
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
                       Blog et actualites
@@ -441,7 +441,7 @@ export function ServiceCityInternalLinks({
                   <li>
                     <Link
                       href="/glossaire"
-                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-gray-600 group-hover:text-indigo-700"
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-slate-600 group-hover:text-indigo-700"
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
                       Glossaire
@@ -450,7 +450,7 @@ export function ServiceCityInternalLinks({
                   <li>
                     <Link
                       href="/devis"
-                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-gray-600 group-hover:text-indigo-700"
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-indigo-50/50 transition-colors group text-sm text-slate-600 group-hover:text-indigo-700"
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
                       Demander un devis gratuit
@@ -463,9 +463,9 @@ export function ServiceCityInternalLinks({
         </div>
 
         {/* Breadcrumb-style contextual trail */}
-        <div className="mt-10 pt-6 border-t border-gray-200">
+        <div className="mt-10 pt-6 border-t border-slate-200">
           <nav
-            className="flex flex-wrap items-center gap-1.5 text-xs text-gray-400"
+            className="flex flex-wrap items-center gap-1.5 text-xs text-slate-400"
             aria-label="Fil d'Ariane contextuel"
           >
             <Link href="/" className="hover:text-indigo-600 transition-colors">
@@ -489,7 +489,7 @@ export function ServiceCityInternalLinks({
             {cityName && currentCitySlug && (
               <>
                 <span aria-hidden="true">/</span>
-                <span className="text-gray-600 font-medium">{cityName}</span>
+                <span className="text-slate-600 font-medium">{cityName}</span>
               </>
             )}
             {department && departmentSlug && (
@@ -535,13 +535,13 @@ export function ContentHubLinks({
   const displayedCities = topCities.slice(0, 8);
 
   return (
-    <section className="py-12 sm:py-16 bg-gray-50 border-t border-gray-100">
+    <section className="py-12 sm:py-16 bg-slate-50 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">
+          <h2 className="text-xl font-extrabold text-slate-900 tracking-tight mb-1">
             Ressources complementaires
           </h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-slate-500">
             Guides, articles et services lies pour approfondir le sujet
           </p>
         </div>
@@ -549,12 +549,12 @@ export function ContentHubLinks({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Related Guides */}
           {relatedGuides.length > 0 && (
-            <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+            <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center">
                   <BookOpen className="w-4 h-4 text-indigo-600" />
                 </div>
-                <h3 className="text-sm font-bold text-gray-900">Guides</h3>
+                <h3 className="text-sm font-bold text-slate-900">Guides</h3>
               </div>
               <ul className="space-y-1">
                 {relatedGuides
@@ -567,7 +567,7 @@ export function ContentHubLinks({
                         className="flex items-start gap-1.5 px-2 py-1.5 rounded-lg hover:bg-indigo-50/50 transition-colors group"
                       >
                         <ChevronRight className="w-3 h-3 text-indigo-400 flex-shrink-0 mt-1" />
-                        <span className="text-sm text-gray-600 group-hover:text-indigo-700 leading-snug line-clamp-2">
+                        <span className="text-sm text-slate-600 group-hover:text-indigo-700 leading-snug line-clamp-2">
                           {guide.title}
                         </span>
                       </Link>
@@ -579,12 +579,12 @@ export function ContentHubLinks({
 
           {/* Related Blog Posts */}
           {relatedBlogPosts.length > 0 && (
-            <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+            <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center">
                   <FileText className="w-4 h-4 text-indigo-600" />
                 </div>
-                <h3 className="text-sm font-bold text-gray-900">Articles</h3>
+                <h3 className="text-sm font-bold text-slate-900">Articles</h3>
               </div>
               <ul className="space-y-1">
                 {relatedBlogPosts
@@ -597,14 +597,14 @@ export function ContentHubLinks({
                         className="flex items-start gap-1.5 px-2 py-1.5 rounded-lg hover:bg-indigo-50/50 transition-colors group"
                       >
                         <ChevronRight className="w-3 h-3 text-indigo-400 flex-shrink-0 mt-1" />
-                        <span className="text-sm text-gray-600 group-hover:text-indigo-700 leading-snug line-clamp-2">
+                        <span className="text-sm text-slate-600 group-hover:text-indigo-700 leading-snug line-clamp-2">
                           {post.title}
                         </span>
                       </Link>
                     </li>
                   ))}
               </ul>
-              <div className="mt-3 pt-2 border-t border-gray-50">
+              <div className="mt-3 pt-2 border-t border-slate-50">
                 <Link
                   href="/blog"
                   className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
@@ -618,12 +618,12 @@ export function ContentHubLinks({
 
           {/* Related Services */}
           {services.length > 0 && (
-            <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+            <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center">
                   <Wrench className="w-4 h-4 text-indigo-600" />
                 </div>
-                <h3 className="text-sm font-bold text-gray-900">Services</h3>
+                <h3 className="text-sm font-bold text-slate-900">Services</h3>
               </div>
               <ul className="space-y-1">
                 {services.slice(0, 8).map((service) => (
@@ -633,14 +633,14 @@ export function ContentHubLinks({
                       className="flex items-start gap-1.5 px-2 py-1.5 rounded-lg hover:bg-indigo-50/50 transition-colors group"
                     >
                       <ChevronRight className="w-3 h-3 text-indigo-400 flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 group-hover:text-indigo-700 leading-snug">
+                      <span className="text-sm text-slate-600 group-hover:text-indigo-700 leading-snug">
                         {service.name}
                       </span>
                     </Link>
                   </li>
                 ))}
               </ul>
-              <div className="mt-3 pt-2 border-t border-gray-50">
+              <div className="mt-3 pt-2 border-t border-slate-50">
                 <Link
                   href="/services"
                   className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
@@ -654,12 +654,12 @@ export function ContentHubLinks({
 
           {/* Top Cities */}
           {displayedCities.length > 0 && (
-            <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow">
+            <div className="bg-white rounded-2xl border border-slate-100 p-5 hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center">
                   <MapPin className="w-4 h-4 text-indigo-600" />
                 </div>
-                <h3 className="text-sm font-bold text-gray-900">Villes populaires</h3>
+                <h3 className="text-sm font-bold text-slate-900">Villes populaires</h3>
               </div>
               <ul className="space-y-1">
                 {displayedCities.map((city) => (
@@ -669,17 +669,17 @@ export function ContentHubLinks({
                       className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg hover:bg-indigo-50/50 transition-colors group"
                     >
                       <MapPin className="w-3 h-3 text-indigo-400 flex-shrink-0" />
-                      <span className="text-sm text-gray-600 group-hover:text-indigo-700">
+                      <span className="text-sm text-slate-600 group-hover:text-indigo-700">
                         {city.name}
                       </span>
-                      <span className="text-[11px] text-gray-400">
+                      <span className="text-[11px] text-slate-400">
                         ({city.departmentCode})
                       </span>
                     </Link>
                   </li>
                 ))}
               </ul>
-              <div className="mt-3 pt-2 border-t border-gray-50">
+              <div className="mt-3 pt-2 border-t border-slate-50">
                 <Link
                   href="/villes"
                   className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"

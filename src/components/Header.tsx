@@ -2,7 +2,26 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, ArrowRight, ChevronDown } from "lucide-react";
+
+const navLinks = [
+  { href: "/#services", label: "Services" },
+  { href: "/comment-ca-marche", label: "Comment ca marche" },
+  { href: "/comparateur", label: "Prix" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+];
+
+const mobileLinks = [
+  { href: "/#services", label: "Services" },
+  { href: "/devis", label: "Demander un devis" },
+  { href: "/comment-ca-marche", label: "Comment ca marche" },
+  { href: "/comparateur", label: "Comparateur de prix" },
+  { href: "/blog", label: "Blog & Guides" },
+  { href: "/villes", label: "Toutes les villes" },
+  { href: "/artisans", label: "Espace artisans" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,7 +46,9 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-600/20 transition-transform group-hover:scale-105">
-              <span className="text-white font-extrabold text-xs tracking-tighter">RH</span>
+              <span className="text-white font-extrabold text-xs tracking-tighter">
+                RH
+              </span>
             </div>
             <span className="text-lg font-extrabold text-slate-900 tracking-tight">
               Renov<span className="text-indigo-600">Habitation</span>
@@ -36,12 +57,7 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
-            {[
-              { href: "/#services", label: "Services" },
-              { href: "/blog", label: "Blog" },
-              { href: "/artisans", label: "Artisans" },
-              { href: "/contact", label: "Contact" },
-            ].map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -54,13 +70,6 @@ export default function Header() {
 
           {/* CTA Desktop */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="tel:0800000000"
-              className="flex items-center gap-1.5 text-[13px] text-slate-400 hover:text-slate-700 font-medium transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>08 00 00 00 00</span>
-            </a>
             <Link
               href="/devis"
               className="btn-accent flex items-center gap-1.5 px-5 py-2.5 text-[13px] font-semibold"
@@ -88,17 +97,11 @@ export default function Header() {
       {/* Mobile Menu Panel */}
       <div
         className={`md:hidden border-t border-slate-100 bg-white overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-4 py-3 space-y-0.5">
-          {[
-            { href: "/#services", label: "Services" },
-            { href: "/devis", label: "Demander un devis" },
-            { href: "/blog", label: "Blog" },
-            { href: "/artisans", label: "Espace artisans" },
-            { href: "/contact", label: "Contact" },
-          ].map((link) => (
+          {mobileLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}

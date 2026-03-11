@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   title: "Plombier en urgence - Devis gratuit immediat",
   description:
     "Besoin d'un plombier en urgence ? Recevez jusqu'a 3 devis gratuits d'artisans qualifies en moins de 24h. Service gratuit et sans engagement.",
-  robots: { index: false },
+  alternates: {
+    canonical: "/plombier-urgence",
+  },
 };
 
 export default function PlombierUrgencePage() {

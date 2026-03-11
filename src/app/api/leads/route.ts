@@ -71,10 +71,10 @@ export async function POST(request: Request) {
     }
 
     // Send notification email
-    try {
-      const resendApiKey = process.env.RESEND_API_KEY;
+    const resendApiKey = process.env.RESEND_API_KEY;
 
-      if (resendApiKey) {
+    if (resendApiKey) {
+      try {
         const emailRes = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
@@ -119,9 +119,6 @@ export async function POST(request: Request) {
                     <p style="color: #6b7280; font-size: 12px; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Description du besoin</p>
                     <p style="color: #111827; font-size: 14px; margin: 0; line-height: 1.6; white-space: pre-wrap;">${description}</p>
                   </div>
-                  <div style="margin-top: 24px; text-align: center;">
-                    <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://renov-habitation.fr"}/dashboard" style="display: inline-block; background: #4f46e5; color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">Voir dans le dashboard</a>
-                  </div>
                   <p style="color: #9ca3af; font-size: 12px; margin: 24px 0 0; text-align: center;">Renov Habitation — renov-habitation.fr</p>
                 </div>
               </div>
@@ -132,39 +129,17 @@ export async function POST(request: Request) {
         if (!emailRes.ok) {
           const errorData = await emailRes.json().catch(() => ({}));
           console.error("Resend API error:", emailRes.status, errorData);
+          // Lead is saved, email notification failed - still return success
         }
-      } else {
-        console.warn("RESEND_API_KEY not configured - email not sent");
+      } catch (emailError) {
+        console.error("Email sending failed:", emailError);
+        // Lead is saved, email notification failed - still return success
       }
-    } catch (emailError) {
-      console.error("Email sending failed:", emailError);
+    } else {
+      console.warn("RESEND_API_KEY not configured - notification email not sent");
     }
 
     return NextResponse.json({ success: true, lead: data });
-  } catch {
-    return NextResponse.json(
-      { error: "Erreur serveur" },
-      { status: 500 }
-    );
-  }
-}
-
-export async function GET() {
-  try {
-    const { data, error } = await supabase
-      .from("leads")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (error) {
-      console.error("Supabase error:", error);
-      return NextResponse.json(
-        { error: "Erreur lors de la recuperation" },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json({ leads: data });
   } catch {
     return NextResponse.json(
       { error: "Erreur serveur" },
