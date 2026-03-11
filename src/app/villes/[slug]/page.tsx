@@ -26,11 +26,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-// Pre-generate top 200 cities at build time, rest via ISR
+// Pre-generate top 100 cities at build time, rest via ISR
 export async function generateStaticParams() {
   return cities
     .sort((a, b) => b.population - a.population)
-    .slice(0, 200)
+    .slice(0, 100)
     .map((city) => ({ slug: city.slug }));
 }
 

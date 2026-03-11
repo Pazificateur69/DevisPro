@@ -29,12 +29,12 @@ interface Props {
   params: Promise<{ slug: string; city: string }>;
 }
 
-// Pre-generate top 200 cities x all services at build time
+// Pre-generate top 100 cities x all services at build time
 // Rest generated on-demand via ISR (cached after first visit)
 export async function generateStaticParams() {
   const topCities = cities
     .sort((a, b) => b.population - a.population)
-    .slice(0, 200);
+    .slice(0, 100);
   const params: { slug: string; city: string }[] = [];
   for (const service of services) {
     for (const city of topCities) {
