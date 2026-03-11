@@ -7,7 +7,7 @@ import { cities } from "@/lib/cities";
 import DevisForm from "@/components/DevisForm";
 import JsonLd, { getFAQJsonLd, getServiceJsonLd } from "@/components/JsonLd";
 import ServiceIcon from "@/components/ServiceIcon";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, ChevronDown, BookOpen } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -99,8 +99,9 @@ export default async function GuidePage({ params }: Props) {
             {/* Main content */}
             <article className="lg:col-span-2">
               {/* Table of contents */}
-              <div className="bg-indigo-50 rounded-xl p-5 mb-8 border border-indigo-100">
-                <h2 className="font-bold text-slate-900 mb-3 text-sm">
+              <div className="bg-slate-50 rounded-2xl p-5 mb-8 border border-slate-100">
+                <h2 className="font-bold text-slate-900 mb-3 text-sm flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-indigo-500" />
                   Sommaire
                 </h2>
                 <ul className="space-y-1.5 text-sm">
@@ -135,17 +136,17 @@ export default async function GuidePage({ params }: Props) {
               </div>
 
               {/* CTA mid-article */}
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-6 my-8">
-                <h3 className="font-bold text-slate-900 mb-2">
+              <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-6 my-8">
+                <p className="text-sm font-semibold text-slate-900 mb-2">
                   Besoin d&apos;un professionnel ?
-                </h3>
+                </p>
                 <p className="text-slate-600 text-sm mb-4">
                   Recevez jusqu&apos;a 3 devis gratuits d&apos;artisans qualifies pres de
                   chez vous.
                 </p>
                 <Link
                   href="/devis"
-                  className="inline-flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-indigo-700 transition-colors"
+                  className="btn-accent inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold"
                 >
                   Demander un devis gratuit
                   <ArrowRight className="w-4 h-4" />
@@ -157,22 +158,24 @@ export default async function GuidePage({ params }: Props) {
                 <h2 className="text-xl font-bold text-slate-900 mb-6">
                   Questions frequentes
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {page.faq.map((item, index) => (
                     <details
                       key={index}
-                      className="bg-white border rounded-xl p-5 group"
+                      className="bg-white border border-slate-100 rounded-2xl p-5 group card-hover"
                       open={index === 0}
                     >
-                      <summary className="font-semibold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+                      <summary className="font-semibold text-slate-900 cursor-pointer list-none flex items-center justify-between text-[15px]">
                         {item.question}
-                        <span className="text-indigo-600 text-xl ml-4 group-open:rotate-45 transition-transform">
-                          +
+                        <span className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 ml-4 group-open:rotate-180 transition-transform">
+                          <ChevronDown className="w-4 h-4" />
                         </span>
                       </summary>
-                      <p className="text-slate-600 text-sm mt-3 leading-relaxed">
-                        {item.answer}
-                      </p>
+                      <div className="border-t border-slate-100 mt-3 pt-3">
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          {item.answer}
+                        </p>
+                      </div>
                     </details>
                   ))}
                 </div>
@@ -189,7 +192,7 @@ export default async function GuidePage({ params }: Props) {
                       <Link
                         key={p.slug}
                         href={`/guide/${p.slug}`}
-                        className="p-4 border rounded-xl hover:border-indigo-300 hover:bg-indigo-50/50 transition-all"
+                        className="p-4 border border-slate-100 rounded-2xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all card-hover"
                       >
                         <h3 className="font-medium text-sm text-slate-900 mb-1">
                           {p.h1}
@@ -207,7 +210,7 @@ export default async function GuidePage({ params }: Props) {
             {/* Sidebar */}
             <aside className="space-y-6">
               {/* Devis form CTA */}
-              <div id="devis" className="bg-white rounded-xl border p-5 sticky top-20">
+              <div id="devis" className="bg-white rounded-2xl border border-slate-100 p-5 sticky top-20 shadow-lg shadow-slate-200/40">
                 <h3 className="font-bold text-slate-900 mb-2 text-center">
                   Devis gratuit
                 </h3>
@@ -234,7 +237,7 @@ export default async function GuidePage({ params }: Props) {
               </div>
 
               {/* Service pages */}
-              <div className="bg-white rounded-xl border p-5">
+              <div className="bg-white rounded-2xl border border-slate-100 p-5">
                 <h3 className="font-bold text-slate-900 mb-3 text-sm">
                   Nos services
                 </h3>
@@ -257,7 +260,7 @@ export default async function GuidePage({ params }: Props) {
 
               {/* City links */}
               {service && (
-                <div className="bg-white rounded-xl border p-5">
+                <div className="bg-white rounded-2xl border border-slate-100 p-5">
                   <h3 className="font-bold text-slate-900 mb-3 text-sm">
                     {service.name} par ville
                   </h3>

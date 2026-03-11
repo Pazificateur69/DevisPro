@@ -19,18 +19,13 @@ export default function MentionsLegalesPage() {
               Éditeur du site
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              Le site Renov Habitation est édité par [Nom de la société], [forme
-              juridique] au capital de [montant] euros, immatriculée au RCS de
-              [ville] sous le numéro [numéro RCS].
+              Le site renov-habitation.fr est edite par Renov Habitation,
+              micro-entreprise immatriculee en France.
             </p>
             <p className="text-slate-700 leading-relaxed">
-              Siège social : [Adresse complète]
-              <br />
-              Téléphone : [Numéro]
-              <br />
               Email : contact@renov-habitation.fr
               <br />
-              Directeur de la publication : [Nom du directeur]
+              Directeur de la publication : Le gerant de Renov Habitation
             </p>
           </section>
 

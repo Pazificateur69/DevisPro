@@ -5,7 +5,7 @@ import { getServiceBySlug, services } from "@/lib/services";
 import { urgenceData, getUrgenceBySlug } from "@/lib/urgence";
 import JsonLd, { getServiceJsonLd } from "@/components/JsonLd";
 import ServiceIcon from "@/components/ServiceIcon";
-import { AlertTriangle, Phone, Clock, ArrowRight, CheckCircle, Shield } from "lucide-react";
+import { AlertTriangle, Phone, Mail, Clock, ArrowRight, CheckCircle, Shield } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -100,11 +100,11 @@ export default async function UrgencePage({ params }: Props) {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="tel:0800000000"
+                href="mailto:contact@renov-habitation.fr"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-[14px] text-base font-medium hover:bg-white/20 transition-all"
               >
-                <Phone className="w-4 h-4" />
-                08 00 00 00 00
+                <Mail className="w-4 h-4" />
+                contact@renov-habitation.fr
               </a>
             </div>
 
@@ -226,11 +226,11 @@ export default async function UrgencePage({ params }: Props) {
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <a
-                    href="tel:0800000000"
+                    href="mailto:contact@renov-habitation.fr"
                     className="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-[14px] font-medium hover:bg-white/20 transition-all"
                   >
-                    <Phone className="w-4 h-4" />
-                    08 00 00 00 00
+                    <Mail className="w-4 h-4" />
+                    contact@renov-habitation.fr
                   </a>
                 </div>
 

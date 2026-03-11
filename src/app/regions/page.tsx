@@ -41,10 +41,15 @@ export default function RegionsPage() {
         }}
       />
 
-      <div className="min-h-screen bg-[#fafafa]">
+      <div className="min-h-screen bg-subtle">
         <section className="hero-gradient text-white py-20 sm:py-28 relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,_rgba(255,255,255,0.1)_0%,_transparent_60%)]" />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <nav className="text-sm text-indigo-200 mb-6 flex items-center gap-2 flex-wrap justify-center">
+              <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+              <span>/</span>
+              <span className="text-white">Regions</span>
+            </nav>
             <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl border border-white/20">
               <Building2 className="w-8 h-8 text-indigo-300" />
             </div>
@@ -101,7 +106,7 @@ export default function RegionsPage() {
                   <Link
                     key={region.slug}
                     href={`/regions/${region.slug}`}
-                    className="group flex flex-col p-6 rounded-2xl border border-slate-100 bg-[#fafafa] hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all card-hover"
+                    className="group flex flex-col p-6 rounded-2xl border border-slate-100 bg-subtle hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all card-hover"
                   >
                     <h3 className="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-indigo-700 transition-colors">
                       {region.name}

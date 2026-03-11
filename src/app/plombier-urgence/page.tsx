@@ -1,7 +1,9 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import DevisForm from "@/components/DevisForm";
 import {
   Phone,
+  Mail,
   Shield,
   Clock,
   CheckCircle,
@@ -24,6 +26,11 @@ export default function PlombierUrgencePage() {
       {/* Hero section - conversion focused */}
       <section className="py-10 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-slate-500 mb-6 flex items-center gap-2 flex-wrap">
+            <Link href="/" className="hover:text-indigo-600 transition-colors">Accueil</Link>
+            <span>/</span>
+            <span className="text-slate-900 font-medium">Plombier urgence</span>
+          </nav>
           {/* Heading */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 text-[13px] font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">
@@ -109,11 +116,11 @@ export default function PlombierUrgencePage() {
           {/* Bottom CTA */}
           <div className="mt-10 text-center">
             <a
-              href="tel:0800000000"
+              href="mailto:contact@renov-habitation.fr"
               className="inline-flex items-center gap-2 text-indigo-600 font-semibold text-sm hover:text-indigo-700 transition-colors"
             >
-              <Phone className="w-4 h-4" />
-              Appelez-nous : 08 00 00 00 00
+              <Mail className="w-4 h-4" />
+              Contactez-nous : contact@renov-habitation.fr
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>

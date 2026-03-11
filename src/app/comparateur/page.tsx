@@ -22,6 +22,11 @@ export default function ComparateurPage() {
           <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-violet-500/6 rounded-full blur-[120px]" />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <nav className="text-sm text-indigo-200 mb-6 flex items-center gap-2 flex-wrap justify-center">
+            <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+            <span>/</span>
+            <span className="text-white">Comparateur de prix</span>
+          </nav>
           <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl border border-white/20">
             <Euro className="w-8 h-8 text-indigo-300" />
           </div>

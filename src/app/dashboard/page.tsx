@@ -37,7 +37,7 @@ export default function DashboardPage() {
 
   const statusColors: Record<string, string> = {
     nouveau: "bg-indigo-100 text-indigo-700",
-    attribue: "bg-yellow-100 text-yellow-700",
+    attribue: "bg-amber-100 text-amber-700",
     traite: "bg-emerald-100 text-emerald-700",
   };
 
@@ -83,7 +83,7 @@ export default function DashboardPage() {
             {
               label: "Nouveaux",
               value: leads.filter((l) => l.status === "nouveau").length,
-              color: "bg-yellow-50 text-yellow-600",
+              color: "bg-amber-50 text-amber-600",
             },
             {
               label: "Attribués",
@@ -98,7 +98,7 @@ export default function DashboardPage() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="bg-white rounded-xl border p-4 text-center"
+              className="bg-white rounded-2xl border border-slate-100 p-4 text-center"
             >
               <div className={`text-2xl font-bold ${stat.color.split(" ")[1]}`}>
                 {stat.value}
@@ -112,7 +112,7 @@ export default function DashboardPage() {
         {loading ? (
           <div className="text-center py-12 text-slate-500">Chargement...</div>
         ) : filteredLeads.length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-2xl border">
+          <div className="text-center py-12 bg-white rounded-2xl border border-slate-100">
             <p className="text-slate-500">Aucune demande pour le moment</p>
           </div>
         ) : (
@@ -122,7 +122,7 @@ export default function DashboardPage() {
               return (
                 <div
                   key={lead.id}
-                  className="bg-white rounded-xl border p-5 hover:shadow-sm transition-shadow"
+                  className="bg-white rounded-2xl border border-slate-100 p-5 card-hover transition-shadow"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>

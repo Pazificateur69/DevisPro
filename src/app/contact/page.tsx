@@ -90,10 +90,10 @@ export default function ContactPage() {
               {
                 icon: <Phone className="w-5 h-5" />,
                 title: "Telephone",
-                info: "08 00 00 00 00",
-                sub: "Lun-Ven : 9h-18h",
+                info: "Sur rendez-vous",
+                sub: "Contactez-nous par email",
                 color: "bg-indigo-50 text-indigo-600",
-                href: "tel:0800000000",
+                href: undefined,
               },
               {
                 icon: <Mail className="w-5 h-5" />,

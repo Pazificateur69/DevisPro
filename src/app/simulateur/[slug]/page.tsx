@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SimulateurForm from "@/components/SimulateurForm";
-import { Calculator, ArrowRight, CheckCircle, Phone } from "lucide-react";
+import { Calculator, ArrowRight, CheckCircle, Mail } from "lucide-react";
 
 interface SimulateurMeta {
   title: string;
@@ -93,6 +93,11 @@ export default async function SimulateurPage({ params }: Props) {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-indigo-200 mb-6 flex items-center gap-2 flex-wrap">
+            <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+            <span>/</span>
+            <span className="text-white">{meta.h1}</span>
+          </nav>
           <div className="max-w-3xl">
             <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-6">
               <Calculator className="w-7 h-7 text-white" />
@@ -145,11 +150,11 @@ export default async function SimulateurPage({ params }: Props) {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="tel:0800000000"
+              href="mailto:contact@renov-habitation.fr"
               className="inline-flex items-center justify-center gap-2 glass-dark text-slate-300 px-8 py-4 rounded-[14px] text-base font-medium hover:bg-white/10 transition-all"
             >
-              <Phone className="w-4 h-4" />
-              08 00 00 00 00
+              <Mail className="w-4 h-4" />
+              contact@renov-habitation.fr
             </a>
           </div>
           <div className="flex justify-center gap-5 mt-8 text-[13px] text-slate-500">

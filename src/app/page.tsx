@@ -13,6 +13,7 @@ import {
   HeartHandshake,
   MapPin,
   Phone,
+  Mail,
   Timer,
   TrendingUp,
   Sparkles,
@@ -207,11 +208,11 @@ export default function HomePage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="tel:0800000000"
+                href="mailto:contact@renov-habitation.fr"
                 className="inline-flex items-center justify-center gap-2 glass-dark text-slate-300 px-8 py-4 rounded-[14px] text-base font-medium hover:bg-white/10 transition-all"
               >
-                <Phone className="w-4 h-4" />
-                08 00 00 00 00
+                <Mail className="w-4 h-4" />
+                contact@renov-habitation.fr
               </a>
             </div>
 
@@ -773,11 +774,11 @@ export default function HomePage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="tel:0800000000"
+              href="mailto:contact@renov-habitation.fr"
               className="inline-flex items-center justify-center gap-2 glass-dark text-slate-300 px-8 py-4 rounded-[14px] text-base font-medium hover:bg-white/10 transition-all"
             >
-              <Phone className="w-4 h-4" />
-              08 00 00 00 00
+              <Mail className="w-4 h-4" />
+              contact@renov-habitation.fr
             </a>
           </div>
           <div className="flex justify-center gap-5 mt-8 text-[13px] text-slate-500">

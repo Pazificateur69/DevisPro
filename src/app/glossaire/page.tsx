@@ -42,6 +42,11 @@ export default function GlossairePage() {
           <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-violet-500/6 rounded-full blur-[120px]" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <nav className="text-sm text-indigo-200 mb-6 flex items-center gap-2 flex-wrap justify-center">
+            <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+            <span>/</span>
+            <span className="text-white">Glossaire</span>
+          </nav>
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 trust-badge rounded-full px-4 py-2 text-[13px] mb-6 animate-fade-in">
               <BookOpen className="w-3.5 h-3.5 text-indigo-300" />

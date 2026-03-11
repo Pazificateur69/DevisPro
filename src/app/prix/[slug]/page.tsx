@@ -4,7 +4,7 @@ import Link from "next/link";
 import { services, getServiceBySlug } from "@/lib/services";
 import { priceData, getPriceBySlug } from "@/lib/prix";
 import JsonLd, { getFAQJsonLd } from "@/components/JsonLd";
-import { CheckCircle, ArrowRight, Euro, Info } from "lucide-react";
+import { CheckCircle, ArrowRight, Euro, Info, ChevronDown } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -222,15 +222,17 @@ export default async function PrixPage({ params }: Props) {
                   className="bg-white border border-slate-100 rounded-2xl p-5 group card-hover"
                   open={index === 0}
                 >
-                  <summary className="font-semibold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+                  <summary className="font-semibold text-slate-900 cursor-pointer list-none flex items-center justify-between text-[15px]">
                     {item.question}
-                    <span className="text-indigo-600 text-xl ml-4 group-open:rotate-45 transition-transform">
-                      +
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 ml-4 group-open:rotate-180 transition-transform">
+                      <ChevronDown className="w-4 h-4" />
                     </span>
                   </summary>
-                  <p className="text-slate-600 text-sm mt-3 leading-relaxed">
-                    {item.answer}
-                  </p>
+                  <div className="border-t border-slate-100 mt-3 pt-3">
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
                 </details>
               ))}
             </div>
