@@ -82,7 +82,7 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
           setError("Veuillez entrer votre nom");
           return false;
         }
-        if (!/^0[1-9]\d{8}$/.test(formData.telephone.replace(/\s/g, ""))) {
+        if (!/^(\+33|0)[1-9]\d{8}$/.test(formData.telephone.replace(/\s/g, ""))) {
           setError("Veuillez entrer un numero de telephone valide");
           return false;
         }
@@ -261,6 +261,7 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
               onChange={(e) => updateField("description", e.target.value)}
               placeholder="Ex : Mon volet roulant de la chambre est bloque en position fermee depuis ce matin..."
               rows={5}
+              maxLength={500}
               className="w-full rounded-xl p-4 text-sm resize-none"
               autoFocus
             />
@@ -370,7 +371,7 @@ export default function DevisForm({ preselectedService }: DevisFormProps) {
 
         {/* Error */}
         {error && (
-          <div className="mt-5 p-3.5 bg-red-50 border border-red-100 rounded-xl text-red-700 font-medium text-sm flex items-center gap-2.5 animate-fade-in">
+          <div role="alert" className="mt-5 p-3.5 bg-red-50 border border-red-100 rounded-xl text-red-700 font-medium text-sm flex items-center gap-2.5 animate-fade-in">
             <svg className="w-4 h-4 text-red-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>

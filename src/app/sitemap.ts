@@ -57,6 +57,7 @@ export default function sitemap({
       { url: `${BASE_URL}/plan-du-site`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
       { url: `${BASE_URL}/mentions-legales`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
       { url: `${BASE_URL}/cgu`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+      { url: `${BASE_URL}/politique-confidentialite`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     ];
 
     const servicePages: MetadataRoute.Sitemap = services.map((service) => ({

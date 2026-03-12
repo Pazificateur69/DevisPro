@@ -117,6 +117,7 @@ body {
 .stagger-children > *:nth-child(8) { animation-delay: 560ms; }
 .stagger-children > *:nth-child(9) { animation-delay: 640ms; }
 .stagger-children > *:nth-child(10) { animation-delay: 720ms; }
+.stagger-children > *:nth-child(n+11) { animation-delay: 800ms; }
 
 /* ========= TEXT EFFECTS ========= */
 .text-gradient {

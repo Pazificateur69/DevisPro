@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  Phone,
   Mail,
   MapPin,
   ArrowRight,
@@ -266,6 +265,12 @@ export default function Footer() {
               className="hover:text-slate-400 transition-colors"
             >
               C.G.U
+            </Link>
+            <Link
+              href="/politique-confidentialite"
+              className="hover:text-slate-400 transition-colors"
+            >
+              Confidentialite
             </Link>
             <Link
               href="/plan-du-site"

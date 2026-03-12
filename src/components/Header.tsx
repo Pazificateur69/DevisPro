@@ -97,7 +97,7 @@ export default function Header() {
       {/* Mobile Menu Panel */}
       <div
         className={`md:hidden border-t border-slate-100 bg-white overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          mobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-4 py-3 space-y-0.5">

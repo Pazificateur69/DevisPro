@@ -274,7 +274,7 @@ export default function ArtisansPage() {
             </div>
 
             {error && (
-              <div className="p-3 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm font-medium">
+              <div role="alert" className="p-3 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm font-medium">
                 {error}
               </div>
             )}

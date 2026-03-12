@@ -12,7 +12,6 @@ import {
   Zap,
   HeartHandshake,
   MapPin,
-  Phone,
   Mail,
   Timer,
   TrendingUp,
@@ -68,7 +67,7 @@ const testimonials = [
     service: "Chauffage",
     rating: 5,
     text: "Tres satisfaite du service. Les artisans proposes etaient tous qualifies et assures. J'ai pu comparer les prix facilement. Merci !",
-    date: "Mars 2026",
+    date: "Fevrier 2026",
   },
   {
     name: "Pierre D.",

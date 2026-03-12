@@ -298,7 +298,7 @@ export default function ContactPage() {
                 </div>
 
                 {error && (
-                  <div className="p-3 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm font-medium flex items-center gap-2">
+                  <div role="alert" className="p-3 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm font-medium flex items-center gap-2">
                     <svg
                       className="w-4 h-4 text-red-500 flex-shrink-0"
                       fill="none"
